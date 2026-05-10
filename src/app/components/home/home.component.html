@@ -1,0 +1,45 @@
+<div class="map-container" *ngIf="showQuoteWindow == true">
+<app-quote-airport [mobile_location]="address" [mobile_postcode]="''"  ></app-quote-airport>
+</div>
+
+<div class="welcome-section-container" >
+  <!-- <app-register-login *ngIf="showRegistration === true" [login]="false"></app-register-login> -->
+  <div class="welcome-section-container-absolute" *ngIf="showQuoteWindow == false">
+
+    <div class="quote-welcom-container">
+      <div *ngIf="showQuoteWindow == false">
+        <app-home-text (showQuoteWindow) = "showQuoteWindow2($event)"></app-home-text>
+        <app-bg-image></app-bg-image>
+      </div>
+
+  <!-- <div class="welcome-right">
+    <app-welcome-message></app-welcome-message>
+  </div> -->
+</div>
+</div>
+<div class="homepage-container" *ngIf="showQuoteWindow == false">
+  <!-- Services Section -->
+  <app-our-service></app-our-service>
+
+  <!-- Why Choose Us Section -->
+  <app-why-choose-us ></app-why-choose-us>
+
+  <!-- Customer Testimonials Section -->
+  <app-customer-say ></app-customer-say>
+
+  <!-- Safety Commitment Section -->
+  <app-our-commitment ></app-our-commitment>
+
+  <!-- Call-to-Action Section -->
+  <div class="anim cta-section">
+    <h2>Book Your Ride Today!</h2>
+    <div class="div-wrapper">
+      <p>Experience the comfort and reliability of TaxiPilot. Whether you're heading to the airport, going on a city tour, or need corporate transport, we've got you covered. Book now and enjoy the best taxi service in town.</p>
+      <a href="javascript:void(0);" (click)="scrollToTop()" class="cta-button sm-btn sm-btn-primary">Book Now</a>
+    </div>
+  </div>
+</div>
+<app-message-bar />
+<app-footer *ngIf="showQuoteWindow == false"/>
+<app-cookie></app-cookie>
+</div>

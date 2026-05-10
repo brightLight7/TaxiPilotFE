@@ -1,0 +1,35 @@
+trigger:
+- main  # Change this to your default branch
+
+pool:
+  vmImage: 'ubuntu-latest'  # Using a Linux agent for faster builds
+
+steps:
+# Step 1: Install Node.js
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'  # Adjust this to match your Node.js version
+
+# Step 2: Install Dependencies
+- script: |
+    npm install -g @angular/cli
+    npm install
+  displayName: 'Install Dependencies'
+
+# Step 3: Build Angular Application
+- script: |
+    ng build --configuration=production
+  displayName: 'Build Angular App'
+
+# Step 4: Copy Build Artifacts
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'dist'  # Change this to match your Angular project folder name in `dist`
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+# Step 5: Publish Build Artifacts (for Release Pipeline)
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'

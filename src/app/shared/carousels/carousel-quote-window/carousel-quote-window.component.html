@@ -1,0 +1,9 @@
+<div class="carousel">
+    <div class="overlay-dot"></div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let image of images; let i = index" [class.active]="i === currentIndex">
+        <img [src]="image.src" alt="Image {{ i + 1 }}">
+        <!-- <div class="carousel-caption" #captions>{{ image.caption }}</div> -->
+      </div>
+    </div>
+  </div>

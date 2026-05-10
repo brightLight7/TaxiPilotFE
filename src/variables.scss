@@ -1,0 +1,84 @@
+// body
+$bgColor: #676464;
+$font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+$minWidth: 396px;
+$maxWidth: 700px;
+
+//BG Image
+$hightBGImage: 100vh;
+
+//navbar
+$bgNavbar: #ffc107;
+//$bgNavbar: #4b2d23;
+//$bgNavbar: #607D8B;
+//$bgNavbar: linear-gradient(45deg, #973111, rgb(170, 104, 104));
+$colorNavbar: #8f9397;
+$bgOnFocusMenuButton: #56646400;
+$bgOnHoverMenuButton: #b7b9bea3;
+$heightNavBar: 80px;
+$heightNavBarMobile: 61px !important;
+$borderNavbar: 0px solid rgb(231, 236, 231);
+$heightFooterBottom: 22px;
+
+//navbar & container width
+$border-left-width: 8px;
+
+// quote window
+$fontSizeInput: 14px;
+$fontSizeSelect: $fontSizeInput;
+$radiusInput: 0px;
+$quoteWindowInputs: white !important;
+$quoteBgColor: #4f342c;
+$quoteWindowTop: 122px;
+$select-height: 40px;
+
+$bgContainerColor: #f8f5f5;
+
+// page-width
+$pageMaxWidth: 100vw;
+$pageWidth: 80%;
+$bottomBar: 9px solid rgb(175, 72, 38);
+
+$color: #3d3a3a;
+
+$menuHoverBgColor: #2d8bd8;
+
+//quote ap-windows
+$borderRadiusWindow: 0px;
+$quoteAPHeight: 264px;
+
+//input
+$fontSize: 14px;
+$quoteWindowInputs: white !important;
+$quoteBgColor: #f7f3f2;
+$heightInput: 40px;
+$borderInput: 1px solid #6e6f70;
+$borderInputSelect: 1px solid rgb(182, 179, 179);
+$colorInput: #3d3a3a;
+$iconInputSelect: #ffc107;
+$colorPlaceholder: rgb(212, 160, 62);
+$bgInputSelect: white;
+//autocomplete
+$borderRadius: 0px !important;
+
+$widthAll: min(796px, 100%);
+$minWidthAll: 596px;
+
+// mobile view
+$mobile-font-size: 14px;
+
+//Icons
+$colorIcon: #e9e5da;
+$bgColorIcon: #969393;
+
+// New theme
+// Variables
+$primary-color: #007bff; // Blue for primary elements
+$secondary-color: #ff9800; // Accent orange for buttons
+$text-color: #212529; // Dark text
+$bg-light: #f8f9fa; // Light background
+$border-color: #dcdcdc; // Light gray borders
+$box-shadow: rgba(0, 0, 0, 0.1); // Box shadow
+$hover-bg-color: #0056b3; // Hover color for buttons
+$fade-in-duration: 0.5s; // Animation duration

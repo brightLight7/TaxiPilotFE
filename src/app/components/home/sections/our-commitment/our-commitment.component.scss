@@ -1,0 +1,17 @@
+@import '../../../../../variables.scss';
+
+.safety-commitment-section {
+  text-align: center;
+  width: 100%;
+  padding: 0px 30px;
+  display: none;
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 40px;
+  }
+  p {
+    font-weight: bolder;
+  }
+}

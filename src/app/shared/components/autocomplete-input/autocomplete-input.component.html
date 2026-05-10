@@ -1,0 +1,15 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center">
+
+<div
+  fxFlex
+  fxFlexAlign="center"
+  type="address"
+  class="autocomplete-container"
+  [ngStyle]="{ 'min-width.%': 100 }"
+  [ngStyle]="{ 'width.%': 70 }"
+>
+  <mat-google-maps-autocomplete 
+  formControlName="address">
+  </mat-google-maps-autocomplete>
+</div>
+</div>

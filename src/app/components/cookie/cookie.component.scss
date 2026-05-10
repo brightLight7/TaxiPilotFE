@@ -1,0 +1,54 @@
+@import '../../../variables.scss';
+
+.cookie-container{
+position: absolute;
+background-color: #cda76d00;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1000;
+display: none; // TODO remove this to displa cookie message
+}
+
+.cookie-popup {
+  position: fixed;
+  bottom: 0px; /* Hidden initially */
+  left: 0;
+  right: 0;
+  background-color: #080a09fc;
+  color: #b7b0b0;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  transition: bottom 0.5s ease; /* Slide-up animation */
+  border-top: 10px solid #474545;
+  z-index: 1000;
+
+  &.visible {
+    bottom: 0; /* Slide up to show */
+  }
+
+  p{
+    font-size: 15px;
+  }
+
+  .btn-accept,.btn-cancel,.btn-remove {
+    margin-left: 15px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: $borderRadius;
+    cursor: pointer;
+  }
+
+  .btn-cancel {
+    background-color: #cda76d;
+  }
+
+  .btn-accept:hover, .btn-cancel:hover {
+    opacity: .7;
+  }
+}

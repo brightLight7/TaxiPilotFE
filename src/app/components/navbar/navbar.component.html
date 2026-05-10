@@ -1,0 +1,72 @@
+<div id="id-navbar" class="navbar-container">
+  <div class="navbar-content">
+    <app-brand-name ></app-brand-name>
+
+    <nav class="navbar-menu" >
+      <!-- <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/services" routerLinkActive="active">Services</a> -->
+      <!-- <a routerLink="/registration-login" class="my-account" (click)="openSideMenu('login')">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </a> -->
+      <span [ngClass]="disableGlobal == true ? 'disable-me' : 'enable-me' ">
+        <a (click)="openSideMenu('sideMenu1')"  id="id-user-login" aria-label="Login"
+        [ngClass]="showSideMenu == true && showUserLoginMenu == false ? 'my-account my-account-active' : 'my-account'">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+      </span>
+      <!-- <a (click)="userButton_Clicked(true, true)"  id="id-user-login" aria-label="Login"
+      [ngClass]="showSideMenu == true && showUserLoginMenu == false ? 'my-account my-account-active' : 'my-account'">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </a> -->
+      <button (click)="openSideMenu('sideMenu')" id="menu-bars"
+      [ngClass]="showSideMenu == true && showUserLoginMenu == true  ? 'menu-bars my-account-active' :
+      disableGlobal == true
+      ? 'menu-bars disable-me'
+      : 'menu-bars enable-me'" >
+        <!-- <i class="fa fa-bars"></i> -->
+        <div class="transition-wrapper">
+          <div class="element1"></div>
+          <div class="element2"></div>
+          <div class="element3"></div>
+        </div>
+      </button>
+
+      <span class="side-menu-span">
+        <div id="side-menu-bg" class="side-menu-bg hideMe"></div>
+        <div id="side-menu" class="side-menu">
+
+          <div class="menu-side-menu" *ngIf="showUserLoginMenu">
+              <a routerLink="/home" (click)="userButton_Clicked(false, false)" routerLinkActive="active" class="get-quote mobile-view-hide">
+              <i class="fa fa-cab" aria-hidden="true"></i>
+                <span> Book a Ride </span>
+              </a>
+              <!-- <a routerLink="/services" (click)="userButton_Clicked(false)" routerLinkActive="active" class="contact-us mobile-view-hide">
+              <i class="fa fa-book" aria-hidden="true"></i>
+                <span>Services</span>
+              </a> -->
+                <a routerLink="/privacy-policy" (click)="userButton_Clicked(false, true)" routerLinkActive="active" class="contact-us mobile-view-hide">
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <span>Privacy Policy</span>
+                </a>
+                <a routerLink="/contact" (click)="userButton_Clicked(false, true)" routerLinkActive="active" class="contact-us mobile-view-hide">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span>Contact Us</span>
+                </a>
+                <a routerLink="/admin-dashboard" (click)="userButton_Clicked(false, true)" routerLinkActive="active" class="contact-us mobile-view-hide">
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                    <span>Admin Dashboard</span>
+                </a>
+                <a routerLink="/admin-page" (click)="userButton_Clicked(false, true)" routerLinkActive="active" class="contact-us mobile-view-hide">
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                    <span>Admin</span>
+                </a>
+          </div>
+
+          <div class="user-side-menu" *ngIf="!showUserLoginMenu">
+            <app-register-login-2 [login]="true"></app-register-login-2>
+          </div>
+        </div>
+      </span>
+    </nav>
+  </div>
+</div>

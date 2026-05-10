@@ -1,0 +1,192 @@
+@use 'sass:math';
+@import '../../../sm-global.scss';
+@import '../../../variables.scss';
+
+// Variables for colors and sizes
+$primary-color: #004085;
+$secondary-color: #6c757d;
+$text-color: #343a40;
+$background-color: #fffcf4;
+$border-color: #dee2e6;
+$base-spacing: 16px;
+$input-border-color: $border-color;
+$button-bg-color: $primary-color;
+$button-hover-color: darken($primary-color, 8%);
+$button-text-color: #ffffff;
+
+// Container styling
+.container {
+  h1,
+  h2 {
+    font-size: 30px;
+    margin-bottom: $base-spacing * 2;
+  }
+
+  h1 {
+    width: 100%;
+    position: relative;
+    &::before {
+      content: ' ';
+      height: 4px;
+      width: 100%;
+      position: absolute;
+      background: rgba(186, 190, 190, 0.937);
+      top: 41px;
+      left: 0px;
+      border-radius: 20px;
+    }
+  }
+
+  i {
+    margin-right: 8px;
+    color: rgb(185, 50, 163);
+  }
+
+  input,
+  textarea {
+    font-size: 1.5rem;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(
+      100vh - #{$base-spacing * 6}
+    ); // Adjust height for header and padding
+  }
+
+  .left-section,
+  .right-section {
+    flex: 1;
+    padding: $base-spacing;
+  }
+
+  .email-section {
+    margin-bottom: $base-spacing * 2;
+
+    h2 {
+      color: $secondary-color;
+      font-weight: 500;
+      margin-bottom: $base-spacing;
+    }
+
+    p {
+      color: $text-color;
+      line-height: 1.8;
+      margin-bottom: $base-spacing;
+    }
+
+    strong {
+      font-weight: 600;
+      color: $secondary-color;
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+        color: $button-hover-color;
+      }
+    }
+  }
+
+  .map-section {
+    height: 90%;
+    h2 {
+      color: $secondary-color;
+      font-weight: 500;
+      margin-bottom: $base-spacing;
+    }
+    .iframe {
+      border: 5px sold gray;
+      height: 54vh;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .contact-form{
+    .form-group{
+      margin-bottom: 10px;
+      label{
+        font-weight: normal;
+        margin-bottom: 5px;
+      }
+      input, textarea{
+        border: 1px solid rgb(184, 178, 178) !important;
+        padding-inline: 5px;
+        border-radius: $borderRadius;
+      }
+    }
+  }
+
+  .contact-form-section,
+  .right-section {
+    h2 {
+      color: $secondary-color;
+      font-weight: 500;
+      margin-bottom: $base-spacing;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $base-spacing * 1.5;
+      height: 90%;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: 600;
+          color: $secondary-color;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: $base-spacing * 0.75;
+          border: 1px solid $input-border-color;
+          border-radius: $borderRadius;
+          color: $text-color;
+          background-color: #ffffff;
+
+          &:focus {
+            border-color: $primary-color;
+            outline: none;
+          }
+        }
+
+        textarea {
+          resize: vertical;
+        }
+      }
+
+      .submit-btn {
+        padding: $base-spacing * 0.75;
+        background-color: $button-bg-color;
+        color: $button-text-color;
+        border: none;
+        border-radius: $borderRadius;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $button-hover-color;
+        }
+      }
+    }
+  }
+}

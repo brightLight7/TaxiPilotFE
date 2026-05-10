@@ -1,0 +1,6 @@
+<div class="time-input-wrapper">
+    <select name="time" id="time" class="sm-select" [formControl]="timeControl" placeholder="Select Pickup Time" appAriaAccessibility (change)="onTimeWheel($event)">
+      <option *ngFor="let time of timeOptions; trackBy: trackByIndex" [value]="time">{{ time }}</option>
+    </select>
+    <!-- <i class="time-icon2 fa fa-clock"></i> -->
+</div>

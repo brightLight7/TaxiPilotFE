@@ -1,0 +1,41 @@
+export interface GoogleMapInfo {
+    pickup?: string,
+    dest?: string,
+    driverBase?: string,
+    fare?: string,
+    distance?: string,
+    distPickupToDest?: string,
+    arrivalTime?: string,
+    pickupDateTime?: string,
+    distDestToBase?: string,
+    distBaseToPickup?: string,
+    distRound?: string,
+    duration?: string,
+    timeBaseToPickup?: string,
+    timeDestToBase?: string,
+    time?: string,
+    timeRound?: string,
+    status?: string,
+    isCCZone?: boolean
+}
+
+export const initialGoogleMapInfo: GoogleMapInfo = {
+  pickup: '',
+  dest: '',
+  driverBase: '',
+  fare: '',
+  distance: '',
+  distPickupToDest: '',
+  pickupDateTime: '',
+  arrivalTime: '',
+  distDestToBase: '',
+  distBaseToPickup: '',
+  distRound: '',
+  duration: '',
+  timeBaseToPickup: '',
+  timeDestToBase: '',
+  time: '',
+  timeRound: '',
+  status: '',
+  isCCZone: false
+}

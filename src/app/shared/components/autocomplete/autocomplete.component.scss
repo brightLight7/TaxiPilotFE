@@ -1,0 +1,45 @@
+@import '../../../../variables.scss';
+
+@mixin sm-flex-direction($direction-row-col) {
+  display: flex;
+  flex-direction: $direction-row-col;
+}
+
+.div-input {
+  @include sm-flex-direction(column);
+  position: relative;
+  &::after {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f3c5';
+    font-weight: 900;
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    font-size: 17px;
+    height: 34px;
+    width: 35px;
+    padding: 8px 13px;
+    cursor: pointer;
+    background: transparent;
+    color: $colorIcon;
+    text-shadow: 0px 0px 3px black;
+    display: none;
+  }
+  input{
+    color: $color !important;
+    border-radius: $radiusInput;
+  }
+}
+
+input::after{
+
+}
+
+
+@media (max-width: 808px) {
+  .flex-container {
+    span input {
+      font-size: $mobile-font-size;
+    }
+  }
+}

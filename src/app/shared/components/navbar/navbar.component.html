@@ -1,0 +1,52 @@
+<nav class="navbar navbar-inverse navbar-expand-lg fixed-top" style="padding: 0px !important;">
+    <div class="navbar-brand css-shop-name">Bike <span style="color: antiquewhite;">Shop</span></div>
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <span class="navbar-toggler-icon"></span>
+    <i class="fa fa-times"></i> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+
+
+    </button>
+    <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto p-0">
+            <li class="nav-item active" routerLinkActive="active">
+                <a class="nav-link" routerLink="home">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="product">Shop</a>
+            </li>
+            <!-- <li class="nav-item active">
+                <a class="nav-link" routerLink="product">Bike Servicing</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="product">Bike Repairs</a>
+            </li> -->
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="orders" tabindex="-1" aria-disabled="false">Orders</a>
+            </li> -->
+        </ul>
+    </div>
+    <div class="div-user">
+        <i class="fa fa-shopping-basket fa-2x mr-4"></i>
+        <i class="fa fa-user-o fa-2x"></i>
+
+    </div>
+
+
+    <div class="li-basket">
+        <span class="material-icons basket">
+            shopping_basket
+        </span>
+        <span class="basket-count">
+            {{productsBasketCount$ | async}}
+        </span>
+    </div>
+
+    <!-- <label id="lbl-shopName" href="#" tabindex="-1" aria-disabled="false">Bike<br>Shop.</label> -->
+
+</nav>

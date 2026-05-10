@@ -1,0 +1,404 @@
+@import '../../../../sm-global.scss';
+
+.div-quote-container {
+  opacity: 0;
+  transition: opacity 1s ease; /* Smooth transition on opacity */
+  width: 700px;
+  width: $widthAll;min-width: $minWidthAll;
+  margin: auto;
+
+}
+
+.div-quote-container.fade-in {
+  position: relative;
+  opacity: 1;
+  padding: 28px 20px 75px;
+  border-radius: 0px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.505);
+  background: white;
+}
+
+/* Keyframe for zoom-in effect */
+@keyframes slideDown {
+  to {
+      opacity: 1;
+      transform: translateY(0); /* End position: visible and down */
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8); /* Start with 80% size */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* End at full size */
+  }
+}
+
+.quote-header {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+/* Flexbox container for pickup/destination and inputs */
+.pickup-dest-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Checkbox container styling */
+label {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+/* Styling for dropdown and input fields */
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.pickup-dest-div{
+  margin-bottom: 13px;
+}
+
+// .sm-input, .sm-select {
+//   padding: 12px 15px;
+//   border-radius: $borderRadius;
+//   border: $borderInput;
+//   font-size: 16px;
+//   background-color: #fff;
+//   transition: border-color 0.3s ease;
+//   color: black;
+//   width: 100%;
+//   box-sizing: border-box;
+//   height: $heightInput;
+//   margin-bottom: 8px;
+//   padding: 5px;
+//   font-size: $fontSize;
+// }
+
+/* Red border for invalid inputs */
+.sm-input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+/* Focused input field styling */
+.sm-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.sm-select {
+  font-size: 15px;
+  height: 41px;
+}
+
+.pickup-icon, .dest-icon, .select-pickup-icon, .select-dest-icon{
+  position: relative;
+  pointer-events: none;
+}
+
+.pickup-icon:after,
+.select-pickup-icon:after, .select-dest-icon:after {
+  font-family: "Font Awesome 5 Free";
+    content: "\f5b0";
+    font-weight: 900;
+    position: absolute;
+    top: -45px;
+    right: 3px;
+    font-size: 17px;
+    background: #ffffff;
+    height: 34px;
+    width: 35px;
+    padding: 8px 7px;
+    border-left: 1px solid lightgray;
+    color: $colorIcon;
+    background: $bgColorIcon;
+  cursor: pointer;
+    }
+    .dest-icon:after{
+      padding: 8px 10px;
+    }
+
+    .select-dest-icon{
+      content: "\f5af";
+    }
+
+    .pickup-icon:after, .dest-icon:after{
+      content: "\f3c5";
+    }
+
+
+/* This will apply when a valid option is selected */
+.sm-select.valid {
+  color: black; /* Color for the selected options */
+}
+
+/* Date and time input styling */
+#div-date-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  // input {
+  //   width: 140px;
+  //   padding: 12px;
+  //   border-radius: $borderRadius;
+  //   height: $heightInput;
+  //   border: $borderInputSelect;
+  //   background-color: #fff;
+  //   margin: 0px;
+  //   margin-right: 10px;
+  // }
+
+  input:last-child {
+    width: 100px;
+  }
+
+  .input-with-icons {
+    position: relative;
+
+  }
+
+  .calendar-input,
+  .time-input {
+    padding-right: 30px; /* Space for custom icons */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+    width: fit-content;
+  }
+
+  .calendar-icon, .time-icon{
+    position: relative;
+  }
+
+  .calendar-icon:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f133";
+    font-weight: 900;
+    position: absolute;
+    top: 0px;
+    right: 1px;
+    font-size: 17px;
+    height: 36px;
+    width: 35px;
+    padding: 8px 11px;
+    cursor: pointer;
+    background: $bgColorIcon;
+    color: $colorIcon;
+    text-shadow: none;
+  }
+
+  .time-icon:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f017";
+    font-weight: 900;
+    position: absolute;
+    right: 26px;
+    top: 3px;
+    color: $iconInputSelect;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 8px 10px;
+    border-left: 1px solid lightgray;
+    width: 10px;
+    cursor: pointer;
+
+  }
+
+  .calendar-input::-webkit-calendar-picker-indicator,
+.time-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+}
+
+.swap-icon-div{
+  font-size: 19px;
+  margin-left: 10px;
+  transform: rotate(90deg);
+  border: 1px solid #257750;
+  padding: 7px;
+  border-radius: $borderRadius;
+  background: linear-gradient(315deg, #2c4b08, rgba(144, 239, 20, 0.968627451));
+  color: #fcfffa;
+}
+
+/* Button styling */
+.sm-btn-primary {
+  width: 255px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sm-btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for error messages */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.show-error {
+  display: block;
+}
+
+/* Fare Information Section */
+.css-fare-info-parent {
+  padding: 15px;
+  border-radius: $borderRadius;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 172px;
+  right: 80px;
+
+  .css-fare-info-child {
+    // height: 36px;
+  }
+
+  .flex-css-fare-info {
+    display: flex;
+    width: 100%;
+    height: 82px;
+    align-items: center;
+
+    .flex-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .fare {
+        font-size: 52px;
+        position: relative;
+        color: #535454;
+         .fare2{
+          margin-left: -2px;
+          font-size: 25px;
+          color: #f5764d;
+          font-style: italic;
+          margin-top: 4px;
+          letter-spacing: -1px;
+        }
+      }
+
+      .fare::after {
+        content: 'i';
+        position: absolute;
+        background: rgba(0, 123, 255, 0.71);
+        color: #ffffff;
+        font-size: 13px;
+        padding: 0px 3px 1px 7px;
+        border-radius: $borderRadius;
+        width: 17px;
+        height: 17px;
+        top: -12px;
+        left: -13px;
+        // font-family: Times;
+        display: none;
+      }
+    }
+
+    .flex-item:last-child {
+      align-items: baseline;
+      font-weight: lighter;
+      font-size: 12px;
+      margin: 5px;
+    }
+  }
+}
+
+/* Info Section Styling */
+.info-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: $borderRadius;
+  border: $borderInput;
+  display: flex;
+  align-items: center;
+}
+
+.info-icon {
+  margin-right: 8px;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.info-text {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+// @media (max-width: 784px) {
+//   .div-quote-container{
+//       width: 100vw;
+//       margin: auto;
+//       margin-top: 0px;
+//       max-width: 100%;
+//   }
+
+//   .quote-header{
+//     font-size: 24px !important;
+//     margin-bottom: 7px !important;
+//   }
+
+//   #div-pickup, #div-dest {
+//     max-width: 90%;
+
+//   }
+
+//   #div-airport {
+//     max-width: 90%;
+
+//   }
+
+//   .swap-icon-div{
+
+//   }
+
+//   .flex-container-quote-window {
+//     min-width: 100%;
+//   }
+
+//   #div-date-time {
+//     width: 93%;
+//     flex-direction: row;
+//         // justify-content: space-between;
+//         padding: 0px !important;
+//   }
+
+//   .flex-item-price-button-window{
+//     position: relative;
+//     .overlay-getprice{
+//         position: absolute;
+//         height: 100%;
+//         width: 100%;
+//         background: #2c4b08;
+//     }
+//   }
+
+
+// }
+
+
+

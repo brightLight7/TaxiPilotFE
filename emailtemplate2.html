@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+</head>
+<body style="/* font-family: Arial, sans-serif; */ margin: 0; padding: 0; background-color: #f4f4f4;">
+    <table width="100%" bgcolor="#f4f4f4" cellpadding="0" cellspacing="0" style="margin: 0; padding: 0;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="20" cellspacing="0" style="border-collapse: collapse; margin: 20px 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <tr>
+                        <td bgcolor="#ffffff" style="color: #333333; font-size: 16px;">
+                            <h2 style="color: #4CAF50; font-size: 24px; text-align: center;">Welcome to PiSquare360, ${userName}!</h2>
+                            <p style="margin: 0 0 20px; text-align: center;">
+                                Please confirm your email address by clicking the button below to complete your registration.
+                            </p>
+                            <p style="text-align: center;">
+                                <a href="${verificationLink}" style="display: inline-block; padding: 15px 25px; font-size: 16px; color: #ffffff; background-color: #4CAF50; text-decoration: none; border-radius: $borderRadius;">
+                                    Verify Email Address
+                                </a>
+                            </p>
+                            <p style="margin: 20px 0; text-align: center;">
+                                If you did not sign up for an account, please disregard this email.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 14px; color: #777777;">
+                            © 2024 PiSquare360. All rights reserved.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

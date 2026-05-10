@@ -1,0 +1,18 @@
+<form *ngIf="dynamicForm" [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let field of getObjectKeys(dbObj)" class="form-group">
+    <label [for]="field">{{ field | titlecase }}</label>
+    <input [id]="field" [type]="getFieldType(field)" formControlName="{{field}}" class="form-control" placeholder="" title="Enter {{field}}" />
+
+    <!-- Validation Messages -->
+    <div *ngIf="dynamicForm.get(field)?.invalid && dynamicForm.get(field)?.touched">
+      <span *ngIf="dynamicForm.get(field)?.errors?.['required']" class="error">This field is required</span>
+      <span *ngIf="dynamicForm.get(field)?.errors?.['email']" class="error">Invalid email format</span>
+      <span *ngIf="dynamicForm.get(field)?.errors?.['minlength']" class="error">
+        Must be at least 6 characters long
+      </span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="dynamicForm.invalid">Submit</button>
+</form>
+

@@ -1,0 +1,18 @@
+.css-footer {
+  background-color: #312d29 !important;
+  color: rgb(161, 154, 143);
+  padding: 5px;
+  font-size: 12px;
+  border-top: 1px solid #402d2d;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  a {
+    color: rgb(176, 192, 86);
+  }
+  .css-footer-divs:first-child {
+    border-right: 1px solid #4a3939;
+  }
+}

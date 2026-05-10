@@ -1,0 +1,27 @@
+
+
+<div class="flex-welcome-message-container">
+  <h1>Welcome to {{taxiCompanyName}}</h1>
+  <img class="taxi" src="../../../../assets/vehicles/taxi1.png" alt="">
+  <span class="moto">Specializing in Gatwick Airport Pickups & drops with Safe, Professional, and Reliable Service Every Time.</span>
+  <span class="welcome-info">
+    <span class="info-item"><i class="fa fa-plane" aria-hidden="true"></i> Reliable Airport Pickups and Drop-offs</span>
+    <span class="info-item"><i class="fa fa-mobile" aria-hidden="true"></i> Book Online with Local Professionals!</span>
+    <span class="info-item"><i class="fa fa-clock" aria-hidden="true"></i> 24/7 Availability to Suit Your Schedule</span>
+    <span class="info-item"><i class="fa fa-user-shield" aria-hidden="true"></i> Experienced Drivers Ensuring a Safe Journey</span>
+    <span class="info-item"><i class="fa fa-map-marker-alt" aria-hidden="true"></i> Serving All Major Destinations Around Gatwick Airport</span>
+    <span class="info-item"><i class="fa fa-smile" aria-hidden="true"></i> Friendly Service with a Commitment to Excellence</span>
+  </span>
+
+   <!-- New Text Below the Welcome Section -->
+  <div class="welcome-details" appBoxFancy [borderColor]="'#ff7043'" borderWidth="'1px" [borderLeftWidth]="'5px'" [shadow]="'0px 0px 10px black'">
+    <p>
+        <span class="start-d-quote">At</span> {{taxiCompanyName}}, we take pride in working with local public hire drivers who are not only fully licensed but also highly professional.
+        Each driver is carefully selected to ensure that they meet our strict standards of reliability, safety, and customer service <span class="end-d-quote">excellence.</span>
+    </p>
+  </div>
+  <div class="sm-flex-row-24hr-button sm-mt-9">
+    <button class="sm-btn sm-btn-primary sm-mr-8">Book Airport Transfer (24hr)</button>
+    <button class="sm-btn sm-btn-warning sm-btn-disabled" disabled>Hourly Pickup Quote</button>
+  </div>
+</div>
