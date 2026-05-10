@@ -1,0 +1,44 @@
+@import '../../../../variables.scss';
+select{
+  border-radius: $radiusInput;
+  background: transparent;
+  min-width: 105px;
+}
+
+.time-input-wrapper {
+  position: relative;
+  display: inline-block;
+  select{
+    background: $bgInputSelect;
+  }
+  &::after{
+      font-family: "Font Awesome 5 Free";
+      content: "\f017";
+      font-weight: 900 !important;
+      position: absolute !important;
+      top: 5px !important;
+      right: 2px !important;
+      font-size: 17px !important;
+      height: 33px !important;
+      width: 32px !important;
+      padding: 5px 2px !important;
+      cursor: pointer !important;
+      background: $bgInputSelect !important;
+      color: #e9e5da !important;
+      text-shadow: 0px 0px 3px black !important;
+      border: none !important;
+      display: none;
+  }
+}
+
+
+
+.time-icon2{
+    position: absolute !important;
+    right: 5px;
+    top: 40%;
+    transform: translateY(-50%);
+    color: $colorIcon;
+    pointer-events: none;
+    text-shadow: 0px 0px 3px black;
+}

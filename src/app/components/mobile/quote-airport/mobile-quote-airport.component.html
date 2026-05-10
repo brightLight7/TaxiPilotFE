@@ -1,0 +1,189 @@
+<app-register-login *ngIf="showRegistration" [login]="false" ></app-register-login>
+
+<div class="div-quote-container" appBoxFancy [borderColor]="'#08b1d1'" [borderWidth]="'10px'"  [class.fade-in]="fadeInContainer ">
+    <div id="div-quote" class="flex-item flex-container-quote-window" >
+      <p class="quote-header">Quote & Book</p>
+      <span>{{mobile_location}}</span>
+      <div class="flex-container css-quote">
+        <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+          <!-- Checkbox to toggle between airport dropdown and address input -->
+
+        <div class="flex flex-row align-items-center">
+        <div class="flex flex-col pickup-dest-div">
+          <!-- Airport Dropdown (only visible when the checkbox is checked) -->
+          <div *ngIf="!isAirportPickup" id="div-airport" class="flex-item" >
+            <select id="airport-pickup" class="sm-select " placeholder="Select Pickup Airport" formControlName="selPickup"
+            (ngModelChange)="onSelectionChange($event)"
+            >
+            <option value="" disabled>Select pickup airport</option>
+            <option value="GWS">Gatwick Airport - South Terminal</option>
+          <option value="GWN">Gatwick Airport - North Terminal</option>
+          <!-- <option value="Heathrow Airport - Terminal 1">Heathrow Airport - Terminal 1</option>
+          <option value="Heathrow Airport - Terminal 2">Heathrow Airport - Terminal 2</option>
+          <option value="Heathrow Airport - Terminal 3">Heathrow Airport - Terminal 3</option>
+          <option value="Heathrow Airport - Terminal 4">Heathrow Airport - Terminal 4</option>
+          <option value="Heathrow Airport - Terminal 5">Heathrow Airport - Terminal 5</option>
+          <option value="London City Airport">London City Airport</option>
+          <option value="Stansted Airport" disabled>Stansted Airport (not available)</option>
+          <option value="Luton Airport" disabled>Luton Airport (not available)</option> -->
+          </select>
+          <span class="select-pickup-icon" tabindex="0" role="button" aria-label="Open pickup airport">
+          </span>
+          </div>
+           <!-- Address Autocomplete (visible when the checkbox is unchecked) -->
+           <div *ngIf="isAirportPickup" id="div-pickup" class="flex-item">
+            <app-autocomplete
+              [Id]="'pickup'"
+              [pickupORdest]="'pickup'"
+              (addressEvent)="addressSelectedParent($event)"
+              smTitle="Pickup from"
+              smLabel=""
+              value={{inputPickup}}
+              cssIcon="location_on"
+              placeholder="Enter pickup address (or postcode)"
+              formControlName='inputPickup'
+              (change)="onInputPickupChanged($event)"
+              required
+            ></app-autocomplete>
+            <span class="pickup-icon"  tabindex="0" role="button" aria-label="Open destination airport"></span>
+          </div>
+
+          <div *ngIf="isAirportPickup" id="div-airport" class="flex-item" >
+            <select id="airport-dest" class="sm-select " placeholder="Select Destination Airport" formControlName="selDestination"
+            [(ngModel)]="selDest" (ngModelChange)="onSelectionChange($event)"
+            >
+          <option value="" disabled>Select destination airport</option>
+          <option value="GWS">Gatwick Airport - South Terminal</option>
+          <option value="GWN">Gatwick Airport - North Terminal</option>
+          <!-- <option value="Heathrow Airport - Terminal 1">Heathrow Airport - Terminal 1</option>
+          <option value="Heathrow Airport - Terminal 2">Heathrow Airport - Terminal 2</option>
+          <option value="Heathrow Airport - Terminal 3">Heathrow Airport - Terminal 3</option>
+          <option value="Heathrow Airport - Terminal 4">Heathrow Airport - Terminal 4</option>
+          <option value="Heathrow Airport - Terminal 5">Heathrow Airport - Terminal 5</option>
+          <option value="London City Airport">London City Airport</option>
+          <option value="Stansted Airport" disabled>Stansted Airport (not available)</option>
+          <option value="Luton Airport" disabled>Luton Airport (not available)</option> -->
+        </select>
+        <span class="select-dest-icon"  tabindex="0" role="button" aria-label="Open destination airport"></span>
+
+          </div>
+
+          <!-- Destination Autocomplete (always visible) -->
+          <div *ngIf="!isAirportPickup" id="div-dest" class="flex-item sm-h-40">
+            <app-autocomplete
+              [Id]="'dest'"
+              (addressEvent)="addressSelectedParent($event)"
+              smTitle="Destination"
+              smLabel=""
+              value="inpDest"
+              cssIcon="location_on"
+              placeholder="Enter destination"
+              formControlName="inpDest"
+              [(ngModel)]="inputDest"
+              name="inputDest"
+              required
+            ></app-autocomplete>
+            <span class="dest-icon"  tabindex="0" role="button" aria-label="Open destination airport"></span>
+          </div>
+        </div>
+
+
+        </div>
+
+        <div id="div-date-time" class="flex-item input-with-icons">
+          <input appStyledInput [cdPadding]="'3px 17px 3px 4px'" [borderWidth]=3 [borderColor]="'#aba8a8'" [width]="'fit-content'"
+            id="inp-date"
+            type="date"
+            class="sm-input sm-input-sunken calendar-input"
+            [(ngModel)]="fCtrlDate"
+            [min]="minDate"
+            [max]="maxDate"
+            required
+            style="color: #433e3e"
+            (blur)="blurDateTime($event)"
+            [value]="fCtrlDate"
+            #dateInput
+          />
+          <span
+            class="calendar-icon"
+            (click)="openDatePicker()"
+            (keydown)="handleKeydown($event, 'date')"
+            tabindex="0"
+            role="button"
+            aria-label="Open calendar">
+          </span>
+
+          <input
+            id="inp-time" appStyledInput [cdPadding]="'3px 17px 3px 4px'"  [borderWidth]=3 [borderColor]="'#aba8a8'" [width]="'fit-content'"
+            type="time"
+            class="sm-input   time-input"
+            formControlName="fCtrlTime"
+            [(ngModel)]="fCtrlTime"
+            [step]="timeStep"
+            (wheel)="onTimeSelected($event)"
+            required
+            style="color: #433e3e"
+            [value]='fCtrlTime'
+            #timeInput
+          />
+          <span
+            class="time-icon"
+            (click)="openTimePicker()"
+            (keydown)="handleKeydown($event, 'time')"
+            tabindex="0"
+            role="button"
+            aria-label="Open time picker">
+          </span>
+        </div>
+
+            <div class="flex-item-price-button-window">
+              <button
+              [disabled]="inputDest === ''"
+              type="submit"
+              [ngClass]="
+              (inputPickup === '' || selDest === '')
+              ||
+              (inputDest === '' || selPickup === '')
+              ? 'disable-me' : 'sm-btn sm-btn-primary mr-3'"
+              class="sm-btn sm-btn-primary mr-3"
+            >
+              Get Prices
+            </button>
+
+                <!-- <div
+                  class="error-message"
+                  [ngClass]="{ 'show-error': form.invalid }"
+                >
+                  Please fill in all required fields to get a price.
+                </div> -->
+          </div>
+        </form>
+
+        <div class="css-fare-info-parent">
+          <div class="css-fare-info-child fade-in">
+            <div>
+              <app-loading-placeholder type="div"
+              ></app-loading-placeholder>
+            </div>
+
+            <div class="flex-css-fare-info" *ngIf="!showLoading">
+              <div *ngIf="fareInfo$ | async as fareInfo">
+                <div class="flex-item">
+                  <span class="fare">
+                    <!-- £{{ fareInfo.fare | number : '1.2-2' }}</span> -->
+                    <!-- <span class="fare1">£{{fareInfo.fare.split(':')[0].trim()}}</span>
+                    <span class="fare2">{{(fareInfo.fare.split(':')[1] === "" || fareInfo.fare.split(':')[1] === undefined)  ? "00" : fareInfo.fare.split(':')[1]}}</span> -->
+                  </span>
+                </div>
+                <!-- <button class="moreoptions" (click)="fareMoreOptions()" >more options</button> -->
+                <div class="flex-item">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>

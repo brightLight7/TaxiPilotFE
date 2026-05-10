@@ -1,0 +1,254 @@
+
+<app-bg-image class="bg-img"></app-bg-image>
+<div
+  class="div-quote-container flex"
+  appBoxFancy
+  [borderColor]="'transparent'"
+  [borderLeftColor]="'rgb(202 134 22)'"
+  [shadow]="''"
+  [borderLeftWidth]="'0px'"
+  [borderWidth]="'0px'"
+  [borderColor]="'gray'"
+  [class.fade-in]="fadeInContainer"
+>
+  <div class="left-pan">
+    <div id="div-quote" class="flex-item flex-container-quote-window">
+      <i class="fas fa-close quote-window-close" aria-hidden="true" (click)="closeQuoteWindow()"></i>
+      <div class="quote-header">
+        <p>Quote & Book</p>
+        <span class="swap-icon-div">
+          <i
+            class="fa fa-sync-alt"
+            aria-hidden="true"
+            (click)="onTogglePickupType(!isAirportPickup)"
+            placeholder="Switch pickup and destination"
+            appAriaAccessibility
+          ></i>
+        </span>
+      </div>
+      <span>{{ mobile_location }}</span>
+      <!-- visitorPriceEnqCount - {{visitorPriceEnqCount}} -->
+      <div class="flex-container css-quote">
+
+        <!-- <p>{{inputPickup}}</p>
+        <p>{{inputDest}}</p> -->
+
+        <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+          <div id="pickup-dest-inputs" class="flex flex-row align-items-center">
+            <div class="flex flex-col sm-w-100p pickup-dest-div">
+              <div id="div-pickup" class="flex-item">
+                <app-autocomplete
+                  [Id]="'pickup'"
+                  [pickupORdest]="'pickup'"
+                  [iconColor]="iconColor"
+                  (addressEvent)="addressSelectedParent($event, 'pickup')"
+                  (addressLatLong)="addressLatLongSelectedParent($event, 'pickup')"
+                  smTitle="Pickup from"
+                  smLabel=""
+                  cssIcon=""
+                  [value]="inputPickup"
+                  name="inputPickup"
+                  placeholder="Enter pickup address"
+                  required
+                  ></app-autocomplete>
+
+                  <app-autocomplete
+                  [Id]="'dest'"
+                  [pickupORdest]="'dest'"
+                  [iconColor]="iconColor"
+                  (addressEvent)="addressSelectedParent($event, 'dest')"
+                  (addressLatLong)="addressLatLongSelectedParent($event, 'dest')"
+                  smTitle="Destination"
+                  smLabel=""
+                  cssIcon=""
+                  value="inputDest"
+                  name="inputDest"
+                  placeholder="Enter Destination"
+                  required
+                  ></app-autocomplete>
+              </div>
+              <!-- <div class="hideMe">
+   <div id="div-pickup"
+     [ngClass]="{ showMe: !isAirportPickup, hideMe: !isAirportPickup }"
+     class="flex-item"
+   >
+     <app-select-airport
+       [iconName]="''"
+       [iconColor]="iconColor"
+       [formControlName]="selPickup"
+       Id="airport-pickup"
+       [airport]="selPickup"
+       (airportSelectedChild)="airportSelectedParent($event)"
+     />
+     <app-autocomplete
+       [Id]="'pickup'"
+       [pickupORdest]="'pickup'"
+       [iconColor]="iconColor"
+       (addressEvent)="addressSelectedParent($event)"
+       (addressLatLong)="addressLatLongSelectedParent($event)"
+       smTitle="Pickup from"
+       smLabel=""
+       cssIcon=""
+       placeholder="Enter destination"
+       required
+     ></app-autocomplete>
+   </div>
+   <div id="div-dest"
+     [ngClass]="{ showMe: !isAirportPickup, hideMe: isAirportPickup }"
+     class="flex-item sm-h-40"
+   >
+     <app-autocomplete
+       [Id]="'dest'"
+       [iconColor]="iconColor"
+       (addressEvent)="addressSelectedParent($event)"
+       (addressLatLong)="addressLatLongSelectedParent($event)"
+       smTitle="Destination"
+       smLabel=""
+       value="inpDest"
+       cssIcon=""
+       placeholder="Enter pickup address (or postcode)"
+       name="inputDest"
+       required
+     ></app-autocomplete>
+     <app-select-airport
+       [iconName]="''"
+       [iconColor]="iconColor"
+       [formControlName]="selDest"
+       Id="airport-dest"
+       [value]="selPickup"
+       (airportSelectedChild)="airportSelectedParent($event)"
+     />
+   </div>
+ </div> -->
+            </div>
+          </div>
+          <div id="div-date-time" class="flex-item input-with-icons">
+            <div class="date-time-input-wrapper flex">
+              <div class="date-input-wrapper">
+                <input
+                  id="inp-date"
+                  type="date"
+                  class="sm-input date-input calendar-icon"
+                  [min]="minDate"
+                  [max]="maxDate"
+                  required
+                  (change)="blurDateTime($event)"
+                  [value]="fCtrlDate"
+                  placeholder="Pickup date"
+                  appAriaAccessibility
+                  #dateInput
+                />
+                <!-- <i class="calendar-icon2 fa fa-calendar"></i> -->
+              </div>
+
+              <app-time-select
+                (timeSelectedEmit)="timeSelectedParent($event)"
+                [timeFromControl]="fCtrlTime"
+              />
+            </div>
+            <input
+              type="submit"
+              [ngClass]="
+                showGetQuoteButton === true
+                  ? 'sm-btn sm-btn-taxi mt-0'
+                  : 'sm-btn sm-btn-taxi mt-0 disable-me'
+              "
+              appAriaAccessibility
+              value="Get Fare"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="css-fare-info-parent">
+        <div class="css-fare-info-child fade-in">
+          <div *ngIf="showLoading">
+            <app-loading-placeholder type="div"></app-loading-placeholder>
+          </div>
+
+          <div class="flex-css-fare-info" *ngIf="!showLoading">
+            <div
+              class="fareInfo flex-css-fare-info"
+              *ngIf="fareInfo$ | async as fareInfo"
+            >
+              <div class="fareInfo-price">
+                <div
+                  class="fare-box tool-tip"
+                  data-tooltip="The fare is determined by a third-party mapping tool, but we may adjust it if we find it too high or too low. Any car means that we will provide whichever vehicle is available. If you need a specific type of car, please select it from the Choose Vehicle section."
+                >
+                  <!-- £{{ fareInfo.fare | number : '1.2-2' }}</span> -->
+                  <div class="fare">
+                    <div>
+                      <span class="gbp">£</span>
+                      <span class="fare1">
+                        {{
+                          fareInfo.fare ? fareInfo.fare.split(':')[0] : 0
+                        }}</span
+                      >
+                      <span class="fare-point">.</span>
+                      <span class="fare2">
+                        {{
+                          (fareInfo.fare &&
+                            fareInfo.fare.split(':')[1] === '') ||
+                          (fareInfo.fare &&
+                            fareInfo.fare.split(':')[1] === undefined)
+                            ? '00'
+                            : fareInfo.fare && fareInfo.fare.split(':')[1]
+                        }}
+                      </span>
+                    </div>
+                    <span class="any-car">Any car</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fareInfo-otherData">
+                <div class="distance-duration">
+                  <div class="distance">
+                    <span
+                      ><strong>Distance:</strong> {{ this.distanceMiles }} miles
+                      ({{ this.distanceKM }} Km)</span
+                    >
+                  </div>
+                  <div class="duration">
+                    <span
+                      ><strong>Arrive by:</strong> {{ this.arrivalTime }} ({{
+                        this.duration
+                      }})</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-pan">
+    <div class="map-div">
+      <!-- <div id="map" class="map-div-2" *ngIf="showMap === true"> -->
+      <div id="map" class="map-div-2">
+        <app-map [places]="placesArray"></app-map>
+      </div>
+    </div>
+  </div>
+
+<!-- <app-toast [toastMessage]="'Hi how are you'" ></app-toast> -->
+
+<div class="mobile-footer">
+  <span>
+    <i class="fa fa-user-circle"></i>
+  </span>
+  <span>
+    <i class="fa fa-search"></i>
+  </span>
+</div>
+</div>
+<div class="register-please" *ngIf="showRegistration == true">
+  <div>
+    <h4>
+  Register twat...
+</h4>
+  <input type="button" class="btn btn-danger btn-lg" value="Close" (click)="registerPlease()">
+</div>
+</div>
+

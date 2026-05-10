@@ -1,0 +1,95 @@
+// .autocomplete-container {
+//     width: 100%;
+//   }
+
+//   mat-form-field {
+//     display: block;
+//     width: 100% !important;
+//     min-width: 100% !important;
+//   }
+
+//   mat-google-maps-autocomplete {
+//     display: block;
+//     width: 100% !important;
+//     border: 4px solid red;
+//     width: 100%;
+//     background-color: aquamarine;
+//     mat-label{
+//         background: red
+//     }
+
+//     .mat-mdc-text-field-wrapper{
+//         height: 50px;
+//     }
+
+//     input{
+//         background: white !important;
+//         font-size: 15px !important;
+//         margin-top: 20px !important;
+//     }
+
+//     .mat-mdc-form-field-hint-spacer{
+//         background: yellow;
+//         border: none !important;
+//     }
+
+//     mat-error{
+//         display: none;
+//     }
+//   }
+
+//   .mat-form-field-infix {
+//     padding: 0 16px !important; /* Adjust padding as needed */
+//   }
+
+//   .mat-form-field-label {
+//     white-space: nowrap !important;
+//     overflow: hidden !important;
+//     text-overflow: ellipsis !important;
+//   }
+
+@import '../../../../variables.scss';
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: $borderRadius;
+  }
+
+  .autocomplete-container {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .full-width-form-field {
+    width: 100%;
+  }
+
+  mat-form-field {
+    display: block;
+    width: 100%;
+  }
+
+  mat-google-maps-autocomplete {
+    width: 100%;
+  }
+
+  .address-details {
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: $borderRadius;
+  }
+
+  .address-details h3 {
+    margin-top: 0;
+  }
+
+  .address-details p {
+    margin: 8px 0;
+  }

@@ -1,0 +1,17 @@
+<div *ngIf="show == true"
+
+>
+<div
+[ngClass]="toastType.toLowerCase() == 'success'
+? 'toast success'
+: toastType.toLowerCase() == 'error'
+? 'toast error'
+: toastType.toLowerCase() == 'warning'
+? 'toast warning'
+: 'toast default'
+"
+>
+
+  <span class="header">{{toastType}}:</span> <p>{{toastMessage}}</p>
+</div>
+</div>

@@ -1,0 +1,152 @@
+<div class="main-container">
+
+  <div class="login-or-register-buttons">
+    <input id="loginUser" type="button"  class="sm-btn-default-flat active" value="Login" (click)="loginUser()"/>
+    <input id="registerUser" type="button" class="sm-btn-default-flat"  value="Register" (click)="signUp()"/>
+  </div>
+
+  <!-- Registration Section -->
+  <div class='div-login-container' >
+
+    <div [ngClass]="login == true ? 'visibility-hidden' : ''">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <div class="div-register">
+          <h3 class="dialog-heading">Register</h3>
+
+          <div class="name-container">
+            <div class="name-left">
+              <label for="register-firstname">First Name</label>
+              <input id="register-firstname" formControlName="firstName" type="text" class="sm-input" placeholder="Enter first name" required />
+            </div>
+            <div class="name-right">
+              <label for="register-lastname">Last Name</label>
+              <input id="register-lastname" formControlName="lastName" type="text" class="sm-input" placeholder="Enter last name" required />
+            </div>
+          </div>
+
+          <label for="register-email">Email</label>
+          <input id="register-email" formControlName="emailHash" type="text" class="sm-input" placeholder="Enter email" required />
+          <div *ngIf="registerForm.get('emailHash')?.invalid && registerForm.get('emailHash')?.touched">
+            <span *ngIf="registerForm.get('emailHash')?.errors?.['required']">Email is required.</span>
+            <span *ngIf="registerForm.get('emailHash')?.errors?.['email']">Invalid email address.</span>
+          </div>
+
+          <label for="register-phone">Phone Number</label>
+          <input id="register-phone" formControlName="phoneNumber" type="text" class="sm-input" placeholder="Enter phone number" required />
+
+          <div class="password-container">
+            <div class="password-left">
+              <label for="register-password">Enter Password</label>
+              <input id="register-password" formControlName="passwordHash" type="password" class="sm-input" placeholder="Enter password" required />
+            </div>
+            <div class="password-right">
+              <label for="confirm-password">Confirm Password</label>
+              <input id="confirm-password" formControlName="confirmPassword" type="password" class="sm-input" placeholder="Repeat password" required />
+              <div *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched">
+                <span>Passwords do not match.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkbox-group mt-2 flex flex-row gap-4 items-center">
+            <input type="checkbox" id="not-robot" formControlName="notRobot" />
+            <label for="not-robot" class="checkbox-label align-baseline">I am not a robot</label>
+          </div>
+
+          <button type="submit" class="sm-btn sm-btn-bronze sm-btn-md">Register</button>
+
+          <div class="email-sent-msg" *ngIf="emailSentMessage !== ''">
+            <p>{{ emailSentMessage }}</p>
+            <app-toast [toastMessage]="popupMSg"></app-toast>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="div-register">
+        <h3 class="dialog-heading">Register</h3>
+
+
+        <div class="name-container">
+          <div class="name-left">
+            <app-form-input formControlName="firstName" [mandatory]="true" [flexDirection]="'column'"
+              [id]="'register-firstname'" [label]="'First Name'" [class]="'sm-input'" [placeholder]="'Enter first name'"
+              [type]="'text'">
+            </app-form-input>
+          </div>
+          <div class="name-right">
+            <app-form-input formControlName="lastName" [mandatory]="true" [flexDirection]="'column'"
+              [id]="'register-lastname'" [label]="'Last Name'" [class]="'sm-input'" [placeholder]="'Enter last name'"
+              [type]="'text'">
+            </app-form-input>
+          </div>
+        </div>
+
+
+        <app-form-input formControlName="emailHash" [mandatory]="true" [flexDirection]="'column'"
+          [id]="'register-email'" [label]="'Email'" [class]="'sm-input'" [placeholder]="'Enter email'" [type]="'text'">
+        </app-form-input>
+        <div *ngIf="registerForm.get('emailHash')?.invalid && registerForm.get('emailHash')?.touched">
+          <span *ngIf="registerForm.get('emailHash')?.errors?.['required']">Email is required.</span>
+          <span *ngIf="registerForm.get('emailHash')?.errors?.['email']">Invalid email address.</span>
+        </div>
+
+
+        <app-form-input formControlName="phoneNumber" [mandatory]="true" [flexDirection]="'column'"
+          [id]="'register-phone'" [label]="'Phone Number'" [class]="'sm-input'" [placeholder]="'Enter phone number'"
+          [type]="'text'">
+        </app-form-input>
+
+
+        <div class="password-container">
+          <div class="password-left">
+            <app-form-input formControlName="passwordHash" [mandatory]="true" [flexDirection]="'column'"
+              [id]="'register-password'" [label]="'Enter password'" [class]="'sm-input'" [placeholder]="'Enter password'"
+              [type]="'password'">
+            </app-form-input>
+          </div>
+          <div class="password-right">
+            <app-form-input formControlName="confirmPassword" [flexDirection]="'column'" [id]="'confirm-password'"
+              [label]="'Confirm Password'" [class]="'sm-input'" [placeholder]="'Repeat password'" [type]="'password'">
+            </app-form-input>
+            <div *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched">
+              <span>Passwords do not match.</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="checkbox-group mt-2 flex flex-row gap-4 items-center">
+          <input type="checkbox" id="not-robot" formControlName="notRobot" />
+          <label class='lbl' for="not-robot" class="checkbox-label align-baseline">I am not a robot</label>
+        </div>
+
+
+        <button type="submit" class="sm-btn sm-btn-bronze sm-btn-md" >Register</button>
+
+
+        <div class="email-sent-msg" *ngIf="emailSentMessage !== ''">
+          <p>{{ emailSentMessage }}</p>
+          <app-toast [message]="emailSentMessage.split('|')[1]" [toastType]="emailSentMessage.split('|')[0]"></app-toast>
+        </div>
+      </div>
+    </form> -->
+
+
+
+
+  <!-- Login Section -->
+  <div [ngClass]="!login == true ?  'visibility-hidden' : 'div-login'">
+    <h2 class="dialog-heading">Login</h2>
+    <div class="flex-container">
+      <app-form-input [(ngModel)]="loginEmail" [mandatory]=true [flexDirection]="'column'" [id]="'user-email'" [label]="'Email'" [class]="'sm-input'" [placeholder]="'Enter email address'" [type]="'text'" ></app-form-input>
+      <app-form-input [(ngModel)]="loginPassword" [mandatory]=true [flexDirection]="'column'" [id]="'user-password'" [label]="'Email'" [class]="'sm-input'" [placeholder]="'Enter password'" [type]="'text'" ></app-form-input>
+
+      <button class="sm-btn sm-btn-bronze sm-btn-md" (click)="onLogin()">
+        Login
+      </button>
+    </div>
+  </div>
+</div>
+  <app-toast [message]="emailSentMessage.split('|')[1]" [toastType]="emailSentMessage.split('|')[0]"></app-toast>
+</div>

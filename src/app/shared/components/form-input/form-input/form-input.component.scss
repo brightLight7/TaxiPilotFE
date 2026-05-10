@@ -1,0 +1,58 @@
+span{
+  position: relative;
+  display: flex;
+}
+
+.flexDirectionColumn{
+  flex-direction: column;
+}
+
+.flexDirectionRow{
+  flex-direction: row;
+}
+
+label{
+color: black;
+color: #524c4c;
+font-weight: normal;
+position: relative;
+margin-bottom: 0px;
+}
+
+#mandatory-star{
+  color: #cb4f28;
+  font-size: 7px;
+  margin-left: 1px;
+}
+
+input{
+  width: 100%;
+  padding: 8px 19px 8px 8px;
+  margin-bottom: 6px;
+  font-size: 1.4rem;
+  color: #333;
+  border: 1px solid #bfb6b6;
+  border-radius: 0px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  height: 33px !important;
+}
+
+.inputPadding8px{
+  padding: 8px 8px 8px 8px !important;
+}
+
+#del-button{
+  color: #efecec;
+  font-size: 10px;
+  position: absolute;
+  top: 28px;
+  right: 5px;
+  padding: 0px 0px;
+  width: 16px;
+  height: 16px;
+  line-height: 15px;
+  border-radius: 11px;
+  background: #897371;
+  visibility: hidden;
+}

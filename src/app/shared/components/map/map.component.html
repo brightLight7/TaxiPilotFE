@@ -1,0 +1,5 @@
+<google-map [center]="center" [zoom]="zoom" height="91vh" width="100%">
+  <!-- Loop through each place in the places array to drop a pin -->
+  <map-marker *ngFor="let place of places" [position]="{ lat: place.latitude, lng: place.longitude }"></map-marker>
+</google-map>
+

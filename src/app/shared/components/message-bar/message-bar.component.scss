@@ -1,0 +1,19 @@
+@import '../../../../variables.scss';
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  height: $heightFooterBottom;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: #5b5252;
+  width: 100%;
+  opacity: 1;
+  z-index: 1000;
+}
+
+p {
+  text-align: right;
+  font-size: 14px;
+  color: #d5c4c4;
+}

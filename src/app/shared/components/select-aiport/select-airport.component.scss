@@ -1,0 +1,50 @@
+@import '../../../../variables.scss';
+
+$icon-top: 3px;
+$icon-right: 3px;
+
+.div-select {
+  margin-bottom: 2px;
+  position: relative;
+  .placeholder {
+    color: $colorPlaceholder;
+    background: transparent;
+  }
+}
+
+.sm-select{
+  height: $heightInput;
+  color: $color;
+}
+
+.div-select-airport
+ {
+  position: relative;
+&::after {
+  font-family: "Font Awesome 5 Free";
+    content: "\f5b0";
+    font-weight: 900;
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    font-size: 17px;
+    height: 20px;
+    width: 23px;
+    padding: 0px 0px;
+    cursor: pointer;
+    background: $bgInputSelect;
+    color: #e9e5da;
+    text-shadow: 0px 0px 3px black;
+    font-size: 17px;
+}
+}
+
+#airport-dest::after{
+  content: '\f5af' !important;
+}
+
+@media (max-width: 808px) {
+  .sm-select {
+    font-size: $mobile-font-size;
+  }
+}

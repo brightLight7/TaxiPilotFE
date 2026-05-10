@@ -1,0 +1,173 @@
+@import '../../../variables.scss';
+
+:host {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.map-container{
+  display: block; /* Or flex, as needed */
+  height: calc(100vh - $heightNavBar - $heightFooterBottom) !important;
+  overflow: hidden;
+}
+
+.welcome-section-container{
+  display: block; /* Or flex, as needed */
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.welcome-section-container > * {
+  max-width: 100%;
+}
+
+.welcome-section-container-absolute {
+  background:rgba(32, 71, 55, 0.42);
+  width: 100%;
+  overflow: hidden;
+  height: calc(100vh - $heightNavBar - $heightFooterBottom) !important;
+  //height: 100vh !important;
+  top: 0px;
+  .quote-welcom-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .quote-left {
+      //width: min(596px, 100%);
+      // min-width: 596px;
+    }
+    .welcome-right {
+      display: flex;
+      flex-direction: row;
+      flex: 1 1 auto;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #1614141c;
+    }
+  }
+}
+
+/* Responsive Homepage Container */
+.homepage-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Service Section Styling */
+
+/* Call to Action Section */
+.cta-section {
+  background: white;
+  text-align: center;
+  display: none;
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #222;
+  }
+  .cta-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #e67e22;
+    color: white;
+    border-radius: $borderRadius;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #d35400;
+    }
+  }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  text-align: center;
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .testimonials-container {
+    background: linear-gradient(136deg, #204737, #494f0e);
+    padding: 20px;
+    border-radius: $borderRadius;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    .testimonial-item {
+      padding: 20px;
+      border-radius: $borderRadius;
+      background-color: #21461a;
+      p {
+        color: #cee6ce;
+      }
+      span {
+        font-weight: bold;
+        color: #e67e22;
+      }
+    }
+  }
+}
+
+/* Safety Commitment Section */
+.safety-commitment-section {
+  text-align: center;
+  padding: 20px;
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  p {
+    max-width: 800px;
+    margin: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: $borderRadius;
+  }
+}
+
+@media (max-width: 808px) {
+  .welcome-right, .homepage-container, .get-quote {
+    display: none;
+  }
+  .welcome-section-container-absolute{
+    height: 150vh;
+  }
+
+  .welcome-section-container-absolute{
+    width: none;
+  }
+}
+
+@media (max-width: 596px) {
+  .bg-img{
+    display: none;
+  }
+  .quote-left{
+    height: 100%;
+  }
+}
+
+@media (max-width: 725px) {
+  .footer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 396px) {
+  .welcome-section-container-absolute {
+    margin-top: 60px !important;
+  }
+
+  .welcome-section-container{
+    height: 100vh !important;
+  }
+}
+
+

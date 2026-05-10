@@ -1,0 +1,97 @@
+@import '../../../../variables.scss';
+
+.navbar-container {
+  background: linear-gradient(121deg, rgb(197 194 189), rgb(16 80 93 / 97%));
+  color: #2d8d73;
+  width: 100%;
+
+  .navbar-content {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  // .brand-name {
+  //   font-size: 26px;
+  //   font-weight: bold;
+  //   margin-top: -4px;
+
+  //   .brand-part1,
+  //   .brand-part2 {
+  //     text-shadow: 2px 3px 2px rgb(90, 85, 85);
+  //     color: #fff;
+  //   }
+
+  //   .brand-part1 {
+  //     background-color: rgb(140 160 158);
+  //     border-radius: 4px 0 0 4px;
+  //     transition: background-color 0.3s, color 0.3s;
+  //     text-shadow: 2px 3px 2px rgb(90, 85, 85);
+  //     padding: 5px 4px 5px 11px;
+  //   }
+
+  //   .brand-part2 {
+  //     background-color: rgb(175, 72, 38);
+  //     border-radius: 0 4px 4px 0;
+  //     transition: background-color 0.3s, color 0.3s;
+  //     padding: 5px 11px 5px 4px;
+  //   }
+
+  //   .brand-part1:hover,
+  //   .brand-part2:hover {
+  //     background-color: #f8f9fa;
+  //     color: #5a5a5a;
+  //   }
+  // }
+
+  .navbar-menu {
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      padding: 8px 16px;
+      border-radius: $radiusInput;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background: $bgOnHoverMenuButton;
+      }
+
+      &.active {
+        background-color: $bgOnFocusMenuButton;
+        color: #f7f5f2;
+      }
+    }
+  }
+
+  .my-account {
+    font-size: 18px;
+    font-weight: lighter;
+    border-radius: $radiusInput;
+    transition: border-color 0.3s, background-color 0.3s;
+    i {
+      font-size: 28px;
+    }
+
+    span {
+      color: #faf2f2 !important;
+    }
+
+    &:hover {
+      background-color: rgb(11, 78, 117);
+      cursor: pointer;
+    }
+  }
+
+  // @media only screen and (max-width: 1100px) {
+  //   .navbar-container {
+  //     display: none;
+  //   }
+  // }
+}

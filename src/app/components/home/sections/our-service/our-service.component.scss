@@ -1,0 +1,97 @@
+@import '../../../../../variables.scss';
+
+.services-section {
+  text-align: center;
+  background: rgb(240, 239, 237);
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 40px;
+  }
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    .service-item {
+      display: flex;
+      align-self: center;
+      width: 60%;
+      padding: 15px 18px;
+      background-color: #f9f9f9;
+      border-radius: 0px;
+      transition: background-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgb(236, 224, 183);
+      &::before {
+        width: 268px;
+        height: 35px;
+        position: absolute;
+        background-color: #ffd700;
+        color: #9b780f;
+        text-shadow: 0px 1px 0px white;
+        left: 416px;
+        top: 2px;
+        /* transform: rotate(-90deg); */
+        font-size: 16px;
+        padding: 8px;
+        letter-spacing: 2px;
+        font-weight: bolder;
+      }
+      &::after {
+        content: '';
+        width: 268px;
+        height: 424px;
+        position: absolute;
+        background-color: rgb(229 146 23 / 11%);
+        top: -83px;
+        right: -113px;
+        z-index: 0;
+        transform: rotate(340deg);
+      }
+      img {
+        width: 367px;
+        height: 320px;
+        filter: saturate(120px);
+        align-self: center;
+      }
+      .p-desc {
+        height: 320px;
+        padding: 20px;
+        border: 5px solid gold;
+        margin-left: 13px;
+        text-align: left;
+        align-self: center;
+        font-size: 14px;
+      }
+      i {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #e67e22;
+      }
+      &:hover {
+        // background-color: #e67e22;
+        // transform: translateY(-5px);
+        // color: #fff;
+        // i {
+        //   color: white;
+        // }
+      }
+    }
+
+    .service-item:nth-child(1)::before {
+      content: 'Gatwick Pickup & Drop-off';
+    }
+    .service-item:nth-child(2)::before {
+      content: 'Corporate Travel';
+    }
+    .service-item:nth-child(3)::before {
+      content: 'Group Travel';
+    }
+    .service-item:nth-child(4)::before {
+      content: 'City Tour';
+    }
+  }
+}

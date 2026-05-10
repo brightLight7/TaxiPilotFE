@@ -1,0 +1,527 @@
+@import './variables.scss';
+
+.hideMe {
+  visibility: hidden;
+}
+
+.disableMe {
+  pointer-events: none;
+  opacity: .2;
+}
+
+.showMe {
+  visibility: visible;
+}
+
+.error-message{
+  color: red;
+}
+
+.disable-me{
+  pointer-events: none;
+  opacity: .5;
+}
+
+.enable-me{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.sm-border-left-12{
+  border-left: 12px solid #FF9800;
+}
+
+//quote window
+.sm-input, .sm-select, .sm-input, .sm-input-sunken {
+  padding: 12px 15px;
+  border-radius: $borderRadius;
+  border: $borderInput;
+  font-size: 16px;
+  background: #fff;
+  transition: border-color 0.3s ease;
+  color: $colorInput;
+  width: 100%;
+  box-sizing: border-box;
+  height: $heightInput;
+  margin-bottom: 8px;
+  padding: 5px;
+}
+
+.sm-input{
+  font-size: $fontSizeInput;
+  margin-bottom: 10px;
+}
+
+.sm-input, .sm-select{
+  border-radius: $borderRadius;
+  border: $borderInputSelect;
+  font-size: $fontSizeInput;
+  &::placeholder{
+    color: #d7d0d0 !important;
+    text-shadow: none;
+  }
+}
+
+.sm-input:invalid, .sm-select:invalid {
+  color: black; /* Color for the selected options */
+}
+.sm-input:focus, .sm-select:focus {
+  outline: 2px solid #1f5bd3d8 !important; /* Change border color on focus */
+  box-shadow: 0 0 7px rgba(0, 123, 255, 0.297); /* Optional shadow for better visibility */
+  outline: none; /* Remove default outline */
+}
+
+.sm-input-sunken{
+  background: rgb(60 56 56 / 53%) !important;
+  border: 1px solid rgb(159 142 142) !important;
+  outline: 1px solid #b9b3b3 !important;
+  border-bottom: 2px solid #aca9a9 !important;
+  border-top: 1px solid #302e2e !important;
+  color: white !important;
+  text-shadow: 1px 1px 2px black;
+
+
+  &::placeholder{
+    color: rgb(208, 206, 201);
+  }
+
+}
+
+.sm-input-plain{
+  background: rgb(255 254 254 / 53%) !important;
+    border: 1px solid rgb(159, 142, 142) !important;
+    color: rgb(37, 34, 34) !important;
+    border-radius: $borderRadius;
+
+}
+
+.sm-input[Type='date'] {
+  width: fit-content;
+}
+
+.sm-input[Type='time'] {
+  width: fit-content;
+}
+
+.sm-btn-raised-border{
+  border: 2px solid !important;
+  border-color: #f7f2f7 #393639 #393639 #f1eef1 !important;
+  outline: 1px solid rgb(77, 75, 75) !important;
+}
+
+.sm-btn-raised {
+  background: linear-gradient(180deg, #8d878d, #4d4a4d);
+  color: white !important;
+}
+
+.sm-box-shadow-off {
+  box-shadow: none !important;
+}
+
+.sm-box-shadow-raised {
+  box-shadow: -8px -12px 10px #3c32323b inset !important
+}
+
+.sm-btn {
+  margin: 10px 5px 10px 0px;
+  border-radius: $borderRadius;
+  color: #f7f4f4;
+  font-weight: normal;
+  font-size: 14px;
+  height: auto;
+  width: auto;
+  padding: 3px 10px 3px 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer !important;
+  min-width: 100px;
+  &:hover {
+    // transform: translateY(-5%);
+    opacity: .7;
+  }
+}
+
+
+
+.sm-btn-sm {
+  padding-block: 5px !important;
+}
+
+.sm-btn-md {
+  padding-block: 7px !important;
+}
+
+.sm-btn-lg {
+  padding-block: 10px !important;
+}
+
+.sm-btn-mdm {
+  font-size: 13px;
+  padding: 6px;
+}
+
+.sm-btn-lrg {
+  font-size: 15px;
+  padding: 9px;
+}
+
+.sm-btn-disabled {
+  opacity: 0;
+}
+
+.sm-btn-disabled:hover {
+  opacity: 0;
+}
+
+.sm-btn-primary {
+  background: #008DF4;
+}
+
+.sm-btn-secondary {
+  background: #778188;
+}
+
+.sm-btn-info {
+  background: #00D6F1;
+}
+
+.sm-btn-success {
+  background: #1B9064;
+}
+
+.sm-btn-default {
+  background: linear-gradient(180deg, #f3f3f3, #757a7f);
+  color: #27292b !important;
+}
+
+.sm-btn-dark {
+  background: #343A3F;
+}
+
+.sm-btn-warning {
+  background: #FFBF4B;
+}
+
+.sm-btn-white {
+  background: #FFFFFF;
+  color: black;
+}
+
+.sm-btn-danger {
+  background: #E5334A;
+}
+
+.sm-btn-taxi {
+  background: rgb(225, 155, 13);
+}
+
+.sm-btn-shadow-4 {
+  box-shadow: 0px 0px 4px rgb(67, 63, 63);
+}
+
+.sm-btn-shadow-6 {
+  box-shadow: 0px 0px 6px lightgray;
+}
+
+.sm-btn-shadow-8 {
+  box-shadow: 0px 0px 8px lightgray;
+}
+
+.sm-btn-shadow-10 {
+  box-shadow: 0px 0px 10px lightgray;
+}
+
+$color: #111010 !important;
+
+.dialog-heading{
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 1.35px;
+  margin: 0 0 21px;
+  color: $color;
+  position: relative;
+  &::after{
+    content: " ";
+    position: absolute !important;
+    top: 36px !important;
+    left: 2px !important;
+    height: 0px !important;
+    width: 100% !important;
+    background: $color;
+    cursor: pointer !important;
+
+  }
+}
+
+// Mixin for flex direction
+@mixin sm-flex-direction($type) {
+  display: flex;
+
+  @if $type == row {
+    flex-direction: row;
+  } @else if $type == row-reverse {
+    flex-direction: row-reverse;
+  } @else if $type == column {
+    flex-direction: column;
+  } @else if $type == column-reverse {
+    flex-direction: column-reverse;
+  } @else if $type == wrap {
+    flex-wrap: wrap;
+  } @else if $type == nowrap {
+    flex-wrap: nowrap;
+  } @else if $type == wrap-reverse {
+    flex-wrap: wrap-reverse;
+  } @else {
+    flex-direction: row; // Default to row
+  }
+}
+
+// Utility class for flex row
+.flex-row {
+  @include sm-flex-direction(row);
+}
+
+// Utility class for flex column
+.flex-column {
+  @include sm-flex-direction(column);
+}
+
+// Mixin for justify-content
+@mixin sm-justify-content($type) {
+  @if $type == center {
+    justify-content: center;
+  } @else if $type == flex-start {
+    justify-content: flex-start;
+  } @else if $type == flex-end {
+    justify-content: flex-end;
+  } @else if $type == space-between {
+    justify-content: space-between;
+  } @else if $type == space-around {
+    justify-content: space-around;
+  } @else if $type == space-evenly {
+    justify-content: space-evenly;
+  } @else if $type == stretch {
+    justify-content: stretch;
+  } @else {
+    justify-content: center; // Default to center
+  }
+}
+
+// Utility class for justify-content: center
+.justify-center {
+  @include sm-justify-content(center);
+}
+
+// Utility class for justify-content: flex-start
+.justify-start {
+  @include sm-justify-content(flex-start);
+}
+
+// Utility class for justify-content: flex-end
+.justify-end {
+  @include sm-justify-content(flex-end);
+}
+
+// Utility class for justify-content: space-between
+.justify-space-between {
+  @include sm-justify-content(space-between);
+}
+
+// Utility class for justify-content: space-around
+.justify-space-around {
+  @include sm-justify-content(space-around);
+}
+
+// Utility class for justify-content: space-evenly
+.justify-space-evenly {
+  @include sm-justify-content(space-evenly);
+}
+
+// Mixin for align-items
+@mixin sm-align-items($type) {
+  @if $type == center {
+    align-items: center;
+  } @else if $type == flex-start {
+    align-items: flex-start;
+  } @else if $type == flex-end {
+    align-items: flex-end;
+  } @else if $type == baseline {
+    align-items: baseline;
+  } @else if $type == stretch {
+    align-items: stretch;
+  } @else {
+    align-items: center; // Default to center
+  }
+}
+
+@mixin sm-raised-box{
+  border: 1px solid white;
+  border-right-color: #494646;
+  border-bottom-color: #5d5b5b;
+}
+
+// Utility class for align-items: center
+.align-center {
+  @include sm-align-items(center);
+}
+
+// Utility class for align-items: flex-start
+.align-start {
+  @include sm-align-items(flex-start);
+}
+
+// Utility class for align-items: flex-end
+.align-end {
+  @include sm-align-items(flex-end);
+}
+
+// Utility class for align-items: baseline
+.align-baseline {
+  @include sm-align-items(baseline);
+}
+
+// Utility class for align-items: stretch
+.align-stretch {
+  @include sm-align-items(stretch);
+}
+
+// Mixin for align-items
+@mixin sm-align-items($type) {
+  @if $type == center {
+    align-items: center;
+  } @else if $type == flex-start {
+    align-items: flex-start;
+  } @else if $type == flex-end {
+    align-items: flex-end;
+  } @else if $type == baseline {
+    align-items: baseline;
+  } @else if $type == stretch {
+    align-items: stretch;
+  } @else {
+    align-items: center; // Default to center
+  }
+}
+
+// Utility class for align-items: center
+.align-items-center {
+  @include sm-align-items(center);
+}
+
+// Utility class for align-items: flex-start
+.align-items-start {
+  @include sm-align-items(flex-start);
+}
+
+// Utility class for align-items: flex-end
+.align-items-end {
+  @include sm-align-items(flex-end);
+}
+
+// Utility class for align-items: baseline
+.align-items-baseline {
+  @include sm-align-items(baseline);
+}
+
+// Utility class for align-items: stretch
+.align-items-stretch {
+  @include sm-align-items(stretch);
+}
+
+//margins
+@mixin generate-margin-classes($property) {
+  // Generate margin classes from 1px to 10px
+  @for $i from 1 through 100 {
+    .sm-m#{str-slice($property, 1, 1)}-#{$i} {
+      margin-#{$property}: #{$i}px;
+    }
+  }
+}
+
+// Generate margin-top, margin-right, margin-bottom, and margin-left classes
+@include generate-margin-classes('top'); // for margin-top
+@include generate-margin-classes('right'); // for margin-right
+@include generate-margin-classes('bottom'); // for margin-bottom
+@include generate-margin-classes('left'); // for margin-left
+
+//padding
+//margins
+@mixin generate-padding-classes($property) {
+  // Generate margin classes from 1px to 10px
+  @for $i from 1 through 100 {
+    .sm-p#{str-slice($property, 1, 1)}-#{$i} {
+      padding-#{$property}: #{$i}px;
+    }
+  }
+}
+
+// Generate margin-top, margin-right, margin-bottom, and margin-left classes
+@include generate-padding-classes('top'); // for margin-top
+@include generate-padding-classes('right'); // for margin-right
+@include generate-padding-classes('bottom'); // for margin-bottom
+@include generate-padding-classes('left'); // for margin-left
+
+// Mixin to generate margin classes
+@mixin generate-margin-classes($property) {
+  // Generate margin classes from 1px to 100px
+  @for $i from 1 through 100 {
+    .sm-m#{str-slice($property, 1, 1)}-#{$i} {
+      margin-#{$property}: #{$i}px;
+    }
+  }
+}
+
+// Generate margin-top, margin-right, margin-bottom, and margin-left classes
+@include generate-margin-classes('top');    // Generates .sm-mt-1 to .sm-mt-100 for margin-top
+@include generate-margin-classes('right');  // Generates .sm-mr-1 to .sm-mr-100 for margin-right
+@include generate-margin-classes('bottom'); // Generates .sm-mb-1 to .sm-mb-100 for margin-bottom
+@include generate-margin-classes('left');   // Generates .sm-ml-1 to .sm-ml-100 for margin-left
+
+// Mixin to generate width classes
+@mixin generate-width-classes {
+  // Generate width classes from 1% to 100%
+  @for $i from 1 through 500 {
+    .sm-w-#{$i} {
+      width: #{$i}px;
+    }
+  }
+}
+
+// Mixin to generate width classes
+@mixin generate-width-classes {
+  @for $i from 1 through 100 {
+    .sm-w-#{$i}p {
+      width: #{$i}#{"%"};
+    }
+  }
+}
+
+
+// Include the width classes
+@include generate-width-classes;
+
+// Mixin to generate width classes
+@mixin generate-height-classes {
+  // Generate width classes from 1% to 100%
+  @for $i from 1 through 500 {
+    .sm-w-#{$i} {
+      width: #{$i}px;
+    }
+  }
+}
+
+// Include the width classes
+@include generate-height-classes;
+
+@media (max-width: 396px){
+.sm-input,
+  .sm-select,
+  .sm-btn {
+    font-size: $mobile-font-size !important;
+  }
+
+  .sm-select{
+    width: 110px !important;
+    min-width: 110px !important;
+  }
+
+}

@@ -1,0 +1,30 @@
+@import '../../../../variables.scss';
+
+.loading-placeholder-text, .loading-placeholder-div, .loading-placeholder-custom {
+  position: relative;
+}
+
+  .loading-placeholder-text {
+    width: 100%;
+  }
+
+  .loading-spinner {
+    border: 3px solid rgb(183 197 209);
+    border-left-color: #007bff;
+    border-radius: 56%;
+    width: 50px;
+    height: 50px;
+    animation: _ngcontent-ng-c3719647660_spin 1s linear infinite;
+    background: transparent;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

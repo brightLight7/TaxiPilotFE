@@ -1,0 +1,13 @@
+<div *ngIf="showPopup === true" class="cookie-container">
+  <div class="cookie-popup">
+    <p>
+      To use our taxi service website, cookies are essential.
+      By accepting cookies, you enable us to recognize you on future visits and retrieve your previous booking details or preferences,
+      ensuring a seamless and personalized experience. If you choose not to accept cookies, we kindly ask that you leave the website,
+      as they are necessary for its functionality and your convenience.
+    </p>
+    <button class="btn-accept" (click)="acceptCookies()">Continue</button>
+    <!-- <button class="btn-cancel" (click)="rejectCookies()">Reject</button>
+    <button class="btn-remove" (click)="clearCookies()">Clear Cookies</button> -->
+  </div>
+</div>

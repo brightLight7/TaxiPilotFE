@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Admin Dashboard</h1>
+  <div class="dashboard-grid">
+    <div class="dashboard-card" *ngFor="let section of sections">
+      <h3>{{ section.title }}</h3>
+      <ul>
+        <li *ngFor="let item of section.items">{{ item.label }}: <strong>{{ item.value }}</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+@import '../../../../styles-variables.scss';
+@import '../../../../colors-variables.scss';
+nav {
+    background-color: #312d29 !important;
+    height: $navbar-height !important;
+    a {
+        color: #b3b1ab;
+        font-weight: lighter;
+    }
+    a:hover {
+        color: white;
+    }
+    button{
+        background-color: #63564a;
+    }
+}
+
+
+.css-shop-name{
+    color: #ffc107;
+    padding: 5px 20px;
+    border: 1px solid #615151;
+    background-color: #6f6861;
+    font-size: 31px;
+    font-weight: 700;
+    margin-right: 0;
+    span{
+        color: blue;
+    }
+}
+
+.div-user
+{
+    color: #6f675e;
+position: absolute;
+right: 20px;
+display: flex;
+i{
+    text-align: center;
+    padding: 6px;
+}
+
+}
+
+#lbl-shopName {
+    background: #9e9c91;
+    padding: 20px;
+    position: absolute;
+    right: 19px;
+    margin-top: $heightNavBar;
+    border: 3px solid #dad5d0;
+    box-shadow: 0px 0px 4px grey;
+    color: honeydew;
+}
+
+
+.navbar-collapse {
+    height: $navbar-height !important;
+    ul{
+        height: $navbar-height !important;
+        li{
+            height: $navbar-height !important;
+            border-right: 1px solid #5a5249;
+            padding: 9px 8px;
+            :active{
+                background-color: #17a2b8;
+            }
+            a{
+                font-weight: bold;
+                color: #17a2b8;
+                text-shadow: 0px 0px 3px black;
+            }
+        }
+    }
+}
