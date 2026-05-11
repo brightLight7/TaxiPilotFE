@@ -1,17 +1,16 @@
 .brand-name {
-  color: #f3f1ef;
+  color: #ffffff;
   font-size: 36px;
   font-weight: bold;
   margin: 20px 120px;
-  // text-shadow: 0px 1px 0px white;
   .brand-part2 {
-    // color: #29271a;
+    color: #C9A84C;
   }
   .brand-part3 {
     margin-left: 5px;
     font-style: italic;
     font-size: 20px;
-    color: #c2a213;
+    color: rgba(201, 168, 76, 0.7);
   }
 
   .brand-name-desc {
@@ -19,14 +18,14 @@
     margin-top: -1px;
     font-size: 10px;
     p {
-      color: rgb(164, 204, 219);
+      color: rgba(201, 168, 76, 0.45);
       font-weight: lighter;
       font-size: 9px;
       margin: 9px 6px 0px 5px;
       word-spacing: 3px;
       letter-spacing: 1px;
       padding: 0px 6px 0px 0px;
-      border-right: 1px solid gray;
+      border-right: 1px solid rgba(201, 168, 76, 0.3);
       &:last-child {
         border-right: none;
       }
