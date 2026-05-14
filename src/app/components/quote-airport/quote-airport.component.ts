@@ -351,13 +351,12 @@ export class QuoteAirportComponent implements OnInit, OnDestroy {
     }
     // #endregion
 
-    if (!this.form.invalid) {
-      this.form.markAllAsTouched();
+    if (!this.inputPickup || !this.inputDest) {
       return;
     }
 
-    this.showPricePanel = true;7
-    this.isLoading = true; // Show loading spinner
+    this.showPricePanel = true;
+    this.isLoading = true;
     this.showLoading = true;
 
     const _driverBase = this.driverLocation;
@@ -365,26 +364,7 @@ export class QuoteAirportComponent implements OnInit, OnDestroy {
     this.pickupPrice = this.inputPickup;
     this.destPrice = this.inputDest;
 
-    // if (this.isAirportPickup) {
-    //   this.pickupPrice = this.selPickup;
-    //   this.destPrice = this.inputPickup;
-    // }
-
-    this.appFacade.datePickup$.subscribe((x) => {
-      if (x !== '') {
-        this.pickupDateTime = x;
-      } else {
-        this.pickupDateTime = this.minDate;
-      }
-    });
-
-    this.appFacade.timePickup$.subscribe((x) => {
-      if (x !== '') {
-        this.pickupDateTime += ` ${x}`;
-      } else {
-        this.pickupDateTime += ` ${this.minDate}`;
-      }
-    });
+    this.pickupDateTime = `${this.fCtrlDate} ${this.fCtrlTime}`;
 
     const _apCharges = '6';
     const _radiusDist = '6';
@@ -412,7 +392,8 @@ export class QuoteAirportComponent implements OnInit, OnDestroy {
             this.showRegistration = false; //TODO
             // present a dialog box to ask user to enter his/her email - user might have set to to accept cookie message
             // then you can ask again
-
+            this.showLoading = false;
+            this.isLoading = false;
             return;
           } else {
             this.showLoading = false;

@@ -1,6 +1,7 @@
 export const CONSTANTS = {
   //BASE_URL: 'https://localhost:7086/',
-  BASE_URL: 'https://arch360api.pisquare360.com/',
+  //BASE_URL: 'https://arch360api.pisquare360.com/', // use proxy in dev; restore for prod
+  BASE_URL: '/',
 
   DEFAULT_LANGUAGE: 'en',
   MAX_RETRY_ATTEMPTS: 1,

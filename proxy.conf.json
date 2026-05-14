@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://arch360api.pisquare360.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
