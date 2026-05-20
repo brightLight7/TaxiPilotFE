@@ -1,5 +1,8 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useAppStore } from '../store/appStore';
 import RegisterLogin from './RegisterLogin';
 
@@ -7,15 +10,13 @@ export default function Navbar() {
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   const [showLoginPanel, setShowLoginPanel] = useState(false);
   const disableGlobal = useAppStore((s) => s.disableGlobal);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   function openSideMenu(type: 'sideMenu' | 'sideMenu1') {
     if (type === 'sideMenu1') {
-      // user/login icon
       setSideMenuOpen(true);
       setShowLoginPanel(true);
     } else {
-      // hamburger
       setSideMenuOpen(true);
       setShowLoginPanel(false);
     }
@@ -28,10 +29,9 @@ export default function Navbar() {
 
   function handleNavClick(path: string) {
     closeMenu();
-    navigate(path);
+    router.push(path);
   }
 
-  // Close on backdrop click
   useEffect(() => {
     if (!sideMenuOpen) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeMenu(); };
@@ -43,7 +43,7 @@ export default function Navbar() {
     <div id="id-navbar" className="navbar-container">
       <div className="navbar-content">
         {/* Brand */}
-        <Link to="/home" className="navbar-brand" onClick={closeMenu}>
+        <Link href="/home" className="navbar-brand" onClick={closeMenu}>
           TaxiPilot<span className="gatwick">Gatwick</span>
         </Link>
 
@@ -76,12 +76,10 @@ export default function Navbar() {
               <div className="side-menu-bg" onClick={closeMenu} />
               <div className="side-menu">
                 {showLoginPanel ? (
-                  /* Login / Register panel */
                   <div className="user-side-menu" style={{ padding: '16px' }}>
                     <RegisterLogin />
                   </div>
                 ) : (
-                  /* Navigation links */
                   <div className="menu-side-menu">
                     <button
                       onClick={() => handleNavClick('/home')}
