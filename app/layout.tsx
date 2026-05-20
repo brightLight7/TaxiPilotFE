@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </div>
         <Script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS8lzq1HX_xdktiJzo24ayG-FRf-F-f9M&libraries=places"
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&libraries=places`}
           strategy="beforeInteractive"
         />
       </body>

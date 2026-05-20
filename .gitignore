@@ -41,6 +41,11 @@ testem.log
 /.next/
 /out/
 
+# Environment variables — never commit these
+.env
+.env.local
+.env.*.local
+
 # System files
 .DS_Store
 Thumbs.db
