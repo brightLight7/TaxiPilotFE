@@ -14,9 +14,10 @@ export default function Home() {
   const setShowQuoteWindow = useAppStore((s) => s.setShowQuoteWindow);
   const setDisableGlobal = useAppStore((s) => s.setDisableGlobal);
 
-  const [bgIndex, setBgIndex] = useState(() => Math.floor(Math.random() * BG_IMAGES.length));
+  const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
+    setBgIndex(Math.floor(Math.random() * BG_IMAGES.length));
     const interval = setInterval(() => {
       setBgIndex((i) => (i + 1) % BG_IMAGES.length);
     }, 20000);
