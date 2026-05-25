@@ -82,3 +82,17 @@ $border-color: #dcdcdc; // Light gray borders
 $box-shadow: rgba(0, 0, 0, 0.1); // Box shadow
 $hover-bg-color: #0056b3; // Hover color for buttons
 $fade-in-duration: 0.5s; // Animation duration
+
+$homepage-little-labels: 10px;
+$homepage-big-labels: 10px;
+$hero-vehicle-radius: 10px;
+$hero-boxes-below-vehicle: 10px;
+
+// --------------------------------------------------
+// Global radius refactor
+// --------------------------------------------------
+$radius-0: 0px;
+$radius-sm: 3px;
+$radius-md: 3px;
+$radius-lg: 3px;
+$radius-pill: 3px;

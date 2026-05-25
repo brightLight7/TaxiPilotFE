@@ -1,15 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import './variables.scss';
 
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap/dist/css/bootstrap.css';
 @import './sm-global.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap/dist/css/bootstrap.css';
 
 $font-stack: 'Times New Roman', Times, serif;
 
@@ -29,10 +28,27 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: calc(100vh + $heightNavBar);;
+  height: 100vh;
+  min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: scroll; /* Allows vertical scrolling */
+  overflow-y: auto; /* Allows vertical scrolling */
   position: relative;
+}
+
+@supports (height: 100dvh) {
+  html,
+  body {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+}
+
+@media (max-width: 900px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 h1 {
@@ -74,7 +90,7 @@ h1 {
       background: #d6930300;
       top: 45px;
       left: 308px;
-      border-radius: 20px;
+      border-radius: $radius-0;
     }
     &::before {
       content: " ";
@@ -84,7 +100,7 @@ h1 {
     background: rgba(15, 143, 136, 0.937);
     top: 41px;
     left: 330px;
-    border-radius: 20px;
+    border-radius: $radius-0;
     }
   }
 }
@@ -97,12 +113,12 @@ h1 {
     font-family: "Font Awesome 5 Free";
     content: "\f05a";
     position: absolute;
-    color: #3F51B5;
+    color: #fb5b0c;
     font-size: 15px;
     padding: 1px 1px 1px 1px;
     border-radius: 11px;
-    top: 1px;
-    right: 8px;
+    top: -131px;
+    left: 112px;
     width: 12px;
     height: 21px;
     font-weight: 900;

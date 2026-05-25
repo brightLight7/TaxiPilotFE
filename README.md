@@ -1,44 +1,19 @@
-# TaxiPilotNG
+# TaxiPilot Next
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+TaxiPilot is a Next.js React TypeScript app for Gatwick airport transfers, private hire, services, contact, careers, account registration, and admin placeholder pages.
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+npm install
+npm run dev
+```
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Open `http://localhost:3000`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-## Google Map API Key
-
-AIzaSyAoq4vIbUi8LvqJVLhgnmXU9Orap_PxVWA
-
-## TODO
-digit drop effects
-
-## MailJet 5e3d80f002314d25e7476c637854ed14
-
-## Recaptcha
-
-## Use this site key in the HTML code your site serves to users.
-6Lcui4EqAAAAAMKSdqLyxGdvpa1tC-6ODSD3YYOo
-
-## Use this secret key for communication between your site and reCAPTCHA.
-6Lcui4EqAAAAACz3QjDAJWfG3yU4ymdRK4XL5RFN
+```bash
+npm run build
+npm start
+```
