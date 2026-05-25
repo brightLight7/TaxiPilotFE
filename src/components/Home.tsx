@@ -2,9 +2,14 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import bgImage1 from '@/assets/bg-images/1.jpg';
+import bgImage2 from '@/assets/bg-images/2.jpg';
+import bgImage3 from '@/assets/bg-images/3.jpg';
 import { Footer } from '@/components/Footer';
 import { QuoteAirport } from '@/components/QuoteAirport';
 import { useSiteState } from '@/lib/site-state';
+
+const heroBackgrounds = [bgImage1, bgImage2, bgImage3];
 
 export function Home() {
   const { showQuoteWindow, setShowQuoteWindow } = useSiteState();
@@ -51,10 +56,14 @@ export function Home() {
 }
 
 function HomeHero({ onQuote }: { onQuote: () => void }) {
+  const [heroBackground] = useState(
+    () => heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)],
+  );
+
   return (
     <section className="hero">
       <Image
-        src="/assets/city-trafic.jpg"
+        src={heroBackground}
         alt=""
         className="hero__bg"
         fill

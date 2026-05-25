@@ -39,7 +39,7 @@ a { text-decoration: none; }
   color: #1b1b1b;
   display: none;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 100;
   gap: 8px;
   justify-self: start;
   letter-spacing: .08em;
@@ -47,14 +47,14 @@ a { text-decoration: none; }
 }
 .nav-menu-button i { font-size: 21px; }
 .brand-name { color: #1b1b1b; display: inline-flex; flex-direction: column; line-height: 1; text-align: center; text-decoration: none; }
-.brand-name-title { color: #ef6600; font-size: 28px; font-weight: 900; letter-spacing: .02em; }
-.brand-name-desc { color: #1b1b1b; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.brand-name-title { color: #ef6600; font-size: 28px; font-weight: 400; letter-spacing: .02em; }
+.brand-name-desc { color: #1b1b1b; font-size: 11px; font-weight: 100; letter-spacing: .08em; text-transform: uppercase; }
 .nav-pill { border: 1px solid rgba(239,102,0,.25); border-radius: 4px; color: #1b1b1b; font-weight: 700; padding: 10px 12px; }
 .nav-pill:hover, .nav-pill.active { background: rgba(239,102,0,.08); border-color: rgba(239,102,0,.6); color: #ef6600; }
-.cta-quote, .auth-btn-signup { background: #ef6600; border: 1px solid rgba(239,102,0,.38); border-radius: 0; color: #111; font-weight: 900; letter-spacing: .1em; padding: 14px 18px; text-transform: uppercase; }
+.cta-quote, .auth-btn-signup { background: #ef6600; border: 1px solid rgba(239,102,0,.38); border-radius: 0; color: white; font-weight: 100; letter-spacing: .1em; padding: 14px 18px; text-transform: uppercase; }
 .cta-quote.is-disabled { opacity: .6; pointer-events: none; }
 .auth-btn { align-items: center; appearance: none; display: inline-flex; justify-content: center; min-width: 88px; }
-.auth-btn-login { background: #fff; border: 1px solid rgba(239,102,0,.25); border-radius: 4px; color: #ef6600; font-weight: 800; padding: 10px 14px; }
+.auth-btn-login { background: #fff; border: 1px solid rgba(239,102,0,.25); border-radius: 4px; color: #ef6600; font-weight: 100; padding: 10px 14px; }
 .navbar-container--home .navbar-content { display: grid; grid-template-columns: 1fr auto 1fr; }
 .navbar-container--home .brand-row { display: contents; }
 .navbar-container--home .nav-menu-button { display: inline-flex; }
@@ -127,7 +127,7 @@ a { text-decoration: none; }
 .hero h1 {
   color: #fff !important;
   font-size: clamp(42px, 6vw, 84px) !important;
-  font-weight: 900;
+  font-weight: 100;
   letter-spacing: .12em;
   line-height: .92;
   margin: 0;
@@ -141,7 +141,7 @@ a { text-decoration: none; }
 .hero__lead {
   color: rgba(255,255,255,.94);
   font-size: clamp(18px, 2vw, 25px);
-  font-weight: 600;
+  font-weight: 100;
   line-height: 1.25;
   margin: 24px 0 0 160px;
   max-width: 950px;
@@ -152,20 +152,20 @@ a { text-decoration: none; }
   background: #ef6600;
   border: 0;
   border-radius: 0;
-  color: #111111;
+  color: white;
   display: inline-flex;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 100;
   gap: 16px;
   letter-spacing: .08em;
   min-height: 48px;
   padding: 0 18px;
   text-transform: uppercase;
 }
-.title { font-weight: 900; margin: 0 0 4px; }
+.title { font-weight: 100; margin: 0 0 4px; }
 
 .anim { margin: 0; padding-block: 48px; text-align: center; }
-.anim h2 { color: #1b1b1b; font-size: 36px; font-weight: 900; margin: 0 auto 24px; }
+.anim h2 { color: #1b1b1b; font-size: 36px; font-weight: 100; margin: 0 auto 24px; }
 .services-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 0 auto; max-width: 1180px; padding: 0 24px; }
 .service-item { background: #fff; border-radius: 8px; box-shadow: 0 16px 50px rgba(0,0,0,.08); overflow: hidden; text-align: left; }
 .service-item img { height: 210px; object-fit: cover; width: 100%; }
@@ -193,7 +193,7 @@ a { text-decoration: none; }
 .vehicle-picker__grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); }
 .vehicle-card { border: 1px solid rgba(0,0,0,.12); border-radius: 8px; padding: 12px; text-align: center; }
 .vehicle-card img { height: 72px; object-fit: contain; width: 100%; }
-.vehicle-card span { display: block; font-weight: 900; }
+.vehicle-card span { display: block; font-weight: 100; }
 .vehicle-card small { color: #666; }
 .quote-form__notes { margin-top: 22px; }
 .quote-form__success { background: rgba(6,193,103,.12); border-radius: 4px; color: #087743; font-weight: 800; margin: 16px 0 0; padding: 12px; }
@@ -349,7 +349,7 @@ a { text-decoration: none; }
 .quote-panel h2 {
   color: #3a3d40;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 100;
   letter-spacing: 0.22em;
   margin: 0 0 18px;
   text-transform: uppercase;
@@ -399,7 +399,7 @@ a { text-decoration: none; }
 .journey-field__label {
   color: #b8b18e;
   font-size: 10px;
-  font-weight: 900;
+  font-weight: 100;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -516,7 +516,7 @@ a { text-decoration: none; }
   color: #6d7072;
   display: flex;
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 100;
   height: 18px;
   justify-content: center;
   width: 18px;
@@ -777,7 +777,7 @@ a { text-decoration: none; }
     border: 0;
     color: #ffd800;
     display: block;
-    font-weight: 900;
+    font-weight: 100;
     height: 52px;
     margin-bottom: 18px;
     text-transform: uppercase;
