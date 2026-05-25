@@ -1,0 +1,66 @@
+.flex-container {
+  background: transparent;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  .left-panel {
+    width: 50%;
+    background: rgba(0, 0, 0, 0.493);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-left: 3px solid #C9A84C;
+    height: fit-content;
+    margin-block: 85px;
+    margin-left: 7%;
+    padding: 30px;
+    h1 {
+      color: #f0ece4;
+    }
+    p {
+      color: #b0a89a;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .features {
+      list-style: none;
+      line-height: 1.6;
+      font-size: 18px;
+      padding: 0;
+      color: #c9a84c;
+      li::before {
+        content: '✦ ';
+      }
+    }
+    .brand{
+      color: #f5f4ef;
+      font-weight: bolder;
+    }
+    .gatwick{
+      margin-left: 5px;
+      font-style: italic;
+      font-size: 27px;
+      color: #c2a213;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: transparent;
+      color: #C9A84C;
+      border: 1px solid #C9A84C;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn:hover {
+      background: #C9A84C;
+      color: #0a0a0a;
+    }
+  }
+}

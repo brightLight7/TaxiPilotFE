@@ -1,0 +1,18 @@
+<div class="div-input">
+  <label *ngIf="smLabel !== ''" for="{{ Id }}">{{ smLabel }}</label>
+      <input class="sm-input"
+        #autocompleteInput
+        id="{{ Id }}"
+        type="text"
+        title="{{ smTitle }}"
+        placeholder="{{ placeholder }}"
+        (change)="addressSelected(address)"
+        (select)="addressSelected(address)"
+        [(ngModel)]="inputValue"
+        autocomplete="new-password"
+        appAriaAccessibility
+      />
+
+      <!-- <i class="material-symbols-outlined i-icon-right">location_on</i> -->
+
+</div>
