@@ -5,27 +5,48 @@ import Image from 'next/image';
 import eightSeatersImage from '@/assets/icons/8seaters.jpg';
 import executiveImage from '@/assets/icons/executive.jpg';
 import saloonImage from '@/assets/icons/saloon.jpg';
+import estateImage from '@/assets/icons/estate.jpg';
+import mpv5Image from '@/assets/icons/mpv5.jpg';
+import wcImage from '@/assets/icons/wc.jpg';
 import { useSiteState } from '@/lib/site-state';
 
 const services = [
   {
-    name: 'Select',
+    name: 'Saloon',
     image: saloonImage,
     people: 4,
     bags: 2,
     selected: true,
   },
   {
-    name: 'Airport Select',
-    image: eightSeatersImage,
-    people: 8,
-    bags: 6,
+    name: 'Estate',
+    image: estateImage,
+    people: 4,
+    bags: 2,
   },
   {
     name: 'Executive',
     image: executiveImage,
     people: 4,
     bags: 2,
+  },
+  {
+    name: 'Wheelchair',
+    image: wcImage,
+    people: 4,
+    bags: 4,
+  },
+  {
+    name: 'MPV 5 Seater',
+    image: mpv5Image,
+    people: 5,
+    bags: 4,
+  },
+  {
+    name: '8 Seater MPV',
+    image: eightSeatersImage,
+    people: 8,
+    bags: 6,
   },
 ];
 
