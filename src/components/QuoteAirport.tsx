@@ -113,7 +113,7 @@ export function QuoteAirport() {
               <h2>Journey Details</h2>
 
               <JourneyField
-                icon="fa-map-marker"
+                icon={fromGatwick ? 'fa-plane' : 'fa-map-marker'}
                 iconTone="muted"
                 label="Pick Up"
                 placeholder={fromGatwick ? 'Select terminal' : 'Enter location'}
@@ -122,7 +122,7 @@ export function QuoteAirport() {
               />
 
               <JourneyField
-                icon="fa-map-marker"
+                icon={fromGatwick ? 'fa-map-marker' : 'fa-plane'}
                 iconTone="dark"
                 label="Drop Off"
                 placeholder={fromGatwick ? 'Enter destination' : 'Select terminal'}
@@ -139,7 +139,9 @@ export function QuoteAirport() {
               />
 
               <div className="journey-panel__footer">
-                <button type="button">More Options <span>▼</span></button>
+                <button type="button">
+                  More Options <i className="fa fa-caret-down" aria-hidden="true" />
+                </button>
                 <button type="button">Add Note</button>
               </div>
             </section>
@@ -161,7 +163,9 @@ export function QuoteAirport() {
                     <span className="service-option__image">
                       <Image src={service.image} alt="" width={180} height={86} />
                     </span>
-                    <span className="service-option__info-icon" aria-hidden="true">i</span>
+                    <span className="service-option__info-icon" aria-hidden="true">
+                      <i className="fa fa-info" />
+                    </span>
                     <span className="service-option__content">
                       <span className="service-option__title">{service.name}</span>
                       <span className="service-option__meta">
@@ -258,7 +262,11 @@ function JourneyField({
             <input name={name} placeholder={placeholder} />
           )}
         </span>
-        {hasOptions && <span className="journey-field__caret">▼</span>}
+        {hasOptions && (
+          <span className="journey-field__caret">
+            <i className="fa fa-caret-down" aria-hidden="true" />
+          </span>
+        )}
       </label>
       <button className="journey-field__edit" type="button">Edit Address</button>
     </div>

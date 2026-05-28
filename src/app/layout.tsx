@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import 'font-awesome/css/font-awesome.min.css';
 import './globals.scss';
 import { Navbar } from '@/components/Navbar';
 

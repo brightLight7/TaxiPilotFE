@@ -397,19 +397,28 @@ a { text-decoration: none; }
 }
 
 .journey-field__icon {
+  align-items: center;
+  background: #f4f2ea;
+  border-radius: 50%;
+  display: inline-flex;
   font-size: 20px;
-  text-align: center;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
 }
 
 .journey-field__icon--muted {
+  background: rgba(184, 177, 142, 0.16);
   color: #b8b18e;
 }
 
 .journey-field__icon--dark {
+  background: rgba(64, 66, 69, 0.08);
   color: #404245;
 }
 
 .journey-field__icon--yellow {
+  background: rgba(255, 216, 0, 0.18);
   color: #ffd800;
 }
 
