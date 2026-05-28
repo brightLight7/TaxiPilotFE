@@ -2,25 +2,28 @@
 
 import { FormEvent, useState } from 'react';
 import Image from 'next/image';
+import eightSeatersImage from '@/assets/icons/8seaters.jpg';
+import executiveImage from '@/assets/icons/executive.jpg';
+import saloonImage from '@/assets/icons/saloon.jpg';
 import { useSiteState } from '@/lib/site-state';
 
 const services = [
   {
     name: 'Select',
-    image: '/assets/vehicles/taxi1.png',
+    image: saloonImage,
     people: 4,
     bags: 2,
     selected: true,
   },
   {
     name: 'Airport Select',
-    image: '/assets/vehicles/taxi1.png',
-    people: 4,
-    bags: 3,
+    image: eightSeatersImage,
+    people: 8,
+    bags: 6,
   },
   {
     name: 'Executive',
-    image: '/assets/icons/executive_car.jpg',
+    image: executiveImage,
     people: 4,
     bags: 2,
   },
