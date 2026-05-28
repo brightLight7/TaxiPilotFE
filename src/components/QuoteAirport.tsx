@@ -57,10 +57,33 @@ const services = [
   },
 ];
 
+function getMinimumJourneyDateTime() {
+  const minimumDate = new Date();
+  minimumDate.setHours(minimumDate.getHours() + 36);
+  minimumDate.setMinutes(minimumDate.getMinutes() + 5);
+  minimumDate.setSeconds(0, 0);
+
+  const year = minimumDate.getFullYear();
+  const month = String(minimumDate.getMonth() + 1).padStart(2, '0');
+  const day = String(minimumDate.getDate()).padStart(2, '0');
+  const hours = String(minimumDate.getHours()).padStart(2, '0');
+  const minutes = String(minimumDate.getMinutes()).padStart(2, '0');
+
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+function getJourneyDateTimeParts(dateTime: string) {
+  const [date, time] = dateTime.split('T');
+  return { date, time };
+}
+
 export function QuoteAirport() {
   const { setShowQuoteWindow } = useSiteState();
   const [submitted, setSubmitted] = useState(false);
   const [journeyDirection, setJourneyDirection] = useState<JourneyDirection>('from-gatwick');
+  const [minimumJourneyDateTime] = useState(() => getMinimumJourneyDateTime());
+  const minimumJourneyDateParts = getJourneyDateTimeParts(minimumJourneyDateTime);
+  const [journeyDate, setJourneyDate] = useState('');
   const fromGatwick = journeyDirection === 'from-gatwick';
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -134,8 +157,23 @@ export function QuoteAirport() {
                 icon="fa-calendar-o"
                 iconTone="yellow"
                 label="Date of Journey"
-                placeholder="ASAP"
+                placeholder="Select date"
                 name="date"
+                inputType="date"
+                min={minimumJourneyDateParts.date}
+                value={journeyDate}
+                onChange={setJourneyDate}
+              />
+
+              <JourneyField
+                icon="fa-clock-o"
+                iconTone="yellow"
+                label="Time of Journey"
+                placeholder="Select time"
+                name="time"
+                inputType="time"
+                min={journeyDate === minimumJourneyDateParts.date ? minimumJourneyDateParts.time : undefined}
+                step={300}
               />
 
               <div className="journey-panel__footer">
@@ -233,6 +271,11 @@ function JourneyField({
   placeholder,
   name,
   options,
+  inputType = 'text',
+  min,
+  step,
+  value,
+  onChange,
 }: {
   icon: string;
   iconTone: 'muted' | 'dark' | 'yellow';
@@ -240,8 +283,14 @@ function JourneyField({
   placeholder: string;
   name: string;
   options?: string[];
+  inputType?: 'text' | 'date' | 'time';
+  min?: string;
+  step?: number;
+  value?: string;
+  onChange?: (value: string) => void;
 }) {
   const hasOptions = Boolean(options?.length);
+  const hasPicker = inputType === 'date' || inputType === 'time';
 
   return (
     <div className="journey-field-wrap">
@@ -259,12 +308,22 @@ function JourneyField({
               ))}
             </select>
           ) : (
-            <input name={name} placeholder={placeholder} />
+            <input
+              name={name}
+              placeholder={placeholder}
+              type={inputType}
+              min={min}
+              step={step}
+              value={value}
+              onChange={onChange ? (event) => onChange(event.currentTarget.value) : undefined}
+              onFocus={hasPicker ? (event) => event.currentTarget.showPicker?.() : undefined}
+              onClick={hasPicker ? (event) => event.currentTarget.showPicker?.() : undefined}
+            />
           )}
         </span>
-        {hasOptions && (
+        {(hasOptions || hasPicker) && (
           <span className="journey-field__caret">
-            <i className="fa fa-caret-down" aria-hidden="true" />
+            <i className={`fa ${inputType === 'time' ? 'fa-clock-o' : hasPicker ? 'fa-calendar' : 'fa-caret-down'}`} aria-hidden="true" />
           </span>
         )}
       </label>
