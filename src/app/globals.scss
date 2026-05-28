@@ -427,14 +427,19 @@ a { text-decoration: none; }
   text-transform: uppercase;
 }
 
-.journey-field input {
+.journey-field input,
+.journey-field select {
+  appearance: none;
+  background: transparent;
   border: 0 !important;
   color: #2f3f50;
   font-size: 13px;
   padding: 0 !important;
+  width: 100%;
 }
 
-.journey-field input:focus {
+.journey-field input:focus,
+.journey-field select:focus {
   outline: 0;
 }
 

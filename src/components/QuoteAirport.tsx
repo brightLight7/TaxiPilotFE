@@ -10,6 +10,13 @@ import mpv5Image from '@/assets/icons/mpv5.jpg';
 import wcImage from '@/assets/icons/wc.jpg';
 import { useSiteState } from '@/lib/site-state';
 
+type JourneyDirection = 'from-gatwick' | 'to-gatwick';
+
+const gatwickTerminals = [
+  'Gatwick North Terminal',
+  'Gatwick South Terminal',
+];
+
 const services = [
   {
     name: 'Saloon',
@@ -53,6 +60,8 @@ const services = [
 export function QuoteAirport() {
   const { setShowQuoteWindow } = useSiteState();
   const [submitted, setSubmitted] = useState(false);
+  const [journeyDirection, setJourneyDirection] = useState<JourneyDirection>('from-gatwick');
+  const fromGatwick = journeyDirection === 'from-gatwick';
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -82,9 +91,21 @@ export function QuoteAirport() {
             </button>
           </div>
 
-          <div className="quote-account-tabs" aria-label="Account type">
-            <button type="button">Account</button>
-            <button type="button" className="quote-account-tabs__active">Personal</button>
+          <div className="quote-account-tabs" aria-label="Gatwick journey direction">
+            <button
+              type="button"
+              className={fromGatwick ? 'quote-account-tabs__active' : ''}
+              onClick={() => setJourneyDirection('from-gatwick')}
+            >
+              From Gatwick
+            </button>
+            <button
+              type="button"
+              className={!fromGatwick ? 'quote-account-tabs__active' : ''}
+              onClick={() => setJourneyDirection('to-gatwick')}
+            >
+              To Gatwick
+            </button>
           </div>
 
           <form id="quote-window-form" onSubmit={onSubmit}>
@@ -95,17 +116,18 @@ export function QuoteAirport() {
                 icon="fa-map-marker"
                 iconTone="muted"
                 label="Pick Up"
-                placeholder="Enter location"
+                placeholder={fromGatwick ? 'Select terminal' : 'Enter location'}
                 name="pickup"
+                options={fromGatwick ? gatwickTerminals : undefined}
               />
 
               <JourneyField
                 icon="fa-map-marker"
                 iconTone="dark"
                 label="Drop Off"
-                placeholder="Enter location"
+                placeholder={fromGatwick ? 'Enter destination' : 'Select terminal'}
                 name="dropoff"
-                addButton
+                options={fromGatwick ? undefined : gatwickTerminals}
               />
 
               <JourneyField
@@ -206,15 +228,17 @@ function JourneyField({
   label,
   placeholder,
   name,
-  addButton = false,
+  options,
 }: {
   icon: string;
   iconTone: 'muted' | 'dark' | 'yellow';
   label: string;
   placeholder: string;
   name: string;
-  addButton?: boolean;
+  options?: string[];
 }) {
+  const hasOptions = Boolean(options?.length);
+
   return (
     <div className="journey-field-wrap">
       <label className="journey-field">
@@ -223,15 +247,19 @@ function JourneyField({
         </span>
         <span className="journey-field__body">
           <span className="journey-field__label">{label}</span>
-          <input name={name} placeholder={placeholder} />
+          {hasOptions ? (
+            <select name={name} defaultValue="">
+              <option value="" disabled>{placeholder}</option>
+              {options?.map((option) => (
+                <option value={option} key={option}>{option}</option>
+              ))}
+            </select>
+          ) : (
+            <input name={name} placeholder={placeholder} />
+          )}
         </span>
-        <span className="journey-field__caret">▼</span>
+        {hasOptions && <span className="journey-field__caret">▼</span>}
       </label>
-      {addButton && (
-        <button className="journey-field__add" type="button" aria-label="Add stop">
-          +
-        </button>
-      )}
       <button className="journey-field__edit" type="button">Edit Address</button>
     </div>
   );
