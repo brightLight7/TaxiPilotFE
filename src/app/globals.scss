@@ -472,6 +472,17 @@ a { text-decoration: none; }
   grid-template-columns: 1fr;
 }
 
+.journey-date-time-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin-bottom: 18px;
+}
+
+.journey-date-time-row .journey-field-wrap {
+  margin-bottom: 0;
+}
+
 .journey-field__edit {
   background: transparent;
   border: 0;
@@ -818,6 +829,10 @@ a { text-decoration: none; }
 
   .journey-field-wrap {
     grid-template-columns: minmax(0, 1fr) 44px;
+  }
+
+  .journey-date-time-row {
+    grid-template-columns: 1fr;
   }
 
   .service-option {

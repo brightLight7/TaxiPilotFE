@@ -153,28 +153,30 @@ export function QuoteAirport() {
                 options={fromGatwick ? undefined : gatwickTerminals}
               />
 
-              <JourneyField
-                icon="fa-calendar-o"
-                iconTone="yellow"
-                label="Date of Journey"
-                placeholder="Select date"
-                name="date"
-                inputType="date"
-                min={minimumJourneyDateParts.date}
-                value={journeyDate}
-                onChange={setJourneyDate}
-              />
+              <div className="journey-date-time-row">
+                <JourneyField
+                  icon="fa-calendar-o"
+                  iconTone="yellow"
+                  label="Date of Journey"
+                  placeholder="Select date"
+                  name="date"
+                  inputType="date"
+                  min={minimumJourneyDateParts.date}
+                  value={journeyDate}
+                  onChange={setJourneyDate}
+                />
 
-              <JourneyField
-                icon="fa-clock-o"
-                iconTone="yellow"
-                label="Time of Journey"
-                placeholder="Select time"
-                name="time"
-                inputType="time"
-                min={journeyDate === minimumJourneyDateParts.date ? minimumJourneyDateParts.time : undefined}
-                step={300}
-              />
+                <JourneyField
+                  icon="fa-clock-o"
+                  iconTone="yellow"
+                  label="Time of Journey"
+                  placeholder="Select time"
+                  name="time"
+                  inputType="time"
+                  min={journeyDate === minimumJourneyDateParts.date ? minimumJourneyDateParts.time : undefined}
+                  step={300}
+                />
+              </div>
 
               <div className="journey-panel__footer">
                 <button type="button">
