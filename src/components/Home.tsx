@@ -5,6 +5,10 @@ import Image from 'next/image';
 import bgImage1 from '@/assets/bg-images/1.jpg';
 import bgImage2 from '@/assets/bg-images/2.jpg';
 import bgImage3 from '@/assets/bg-images/3.jpg';
+import cityTourImage from '@/assets/home-page/city-tour.jpg';
+import corporateTravelImage from '@/assets/home-page/corporate-travel.jpg';
+import groupTravelImage from '@/assets/home-page/group-travel.jpg';
+import gatwickPickupImage from '@/assets/home-page/person-getting-into-taxi.jpg';
 import { Footer } from '@/components/Footer';
 import { QuoteAirport } from '@/components/QuoteAirport';
 import { useSiteState } from '@/lib/site-state';
@@ -93,19 +97,39 @@ function HomeHero({ onQuote }: { onQuote: () => void }) {
 
 function OurService() {
   const services = [
-    ['/assets/home-page/person-getting-into-taxi.jpg', 'Gatwick Pickup', 'Arrive stress-free with our Gatwick Airport pickup. Our professional drivers greet you at the terminal and assist with luggage for a comfortable start to your journey.'],
-    ['/assets/home-page/corporate-travel.jpg', 'Corporate Travel', 'Our corporate travel service offers efficiency, comfort, and professionalism with modern vehicles and experienced drivers available 24/7.'],
-    ['/assets/home-page/group-travel.jpg', 'Group Travel', 'Spacious vehicles and professional drivers for events, tours, and group occasions, with flexible booking options for every party size.'],
-    ['/assets/home-page/city-tour.jpg', 'City Tours', 'Make the most of your transit time with a quick London city tour designed around airport pickups and drop-offs.'],
+    {
+      image: gatwickPickupImage,
+      title: 'Gatwick Pickup',
+      alt: 'Passenger getting into a taxi',
+      text: 'Arrive stress-free with our Gatwick Airport pickup. Our professional drivers greet you at the terminal and assist with luggage for a comfortable start to your journey.',
+    },
+    {
+      image: corporateTravelImage,
+      title: 'Corporate Travel',
+      alt: 'Corporate taxi travel',
+      text: 'Our corporate travel service offers efficiency, comfort, and professionalism with modern vehicles and experienced drivers available 24/7.',
+    },
+    {
+      image: groupTravelImage,
+      title: 'Group Travel',
+      alt: 'Group taxi travel',
+      text: 'Spacious vehicles and professional drivers for events, tours, and group occasions, with flexible booking options for every party size.',
+    },
+    {
+      image: cityTourImage,
+      title: 'City Tours',
+      alt: 'London city tour taxi service',
+      text: 'Make the most of your transit time with a quick London city tour designed around airport pickups and drop-offs.',
+    },
   ];
 
   return (
     <div className="anim icon-camera services-section">
       <h2>Our Services</h2>
       <div className="services-grid">
-        {services.map(([image, title, text]) => (
+        {services.map(({ image, title, alt, text }) => (
           <div className="service-item" key={title}>
-            <Image src={image} alt="" width={420} height={260} />
+            <Image src={image} alt={alt} width={420} height={260} />
             <div className="p-desc"><p><strong>{title}:</strong> {text}</p></div>
           </div>
         ))}
