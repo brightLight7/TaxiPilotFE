@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import bgImage1 from '@/assets/bg-images/1.jpg';
 import bgImage2 from '@/assets/bg-images/2.jpg';
@@ -60,9 +60,11 @@ export function Home() {
 }
 
 function HomeHero({ onQuote }: { onQuote: () => void }) {
-  const [heroBackground] = useState(
-    () => heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)],
-  );
+  const [heroBackground, setHeroBackground] = useState(heroBackgrounds[0]);
+  useEffect(() => { setHeroBackground(heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)]); }, []);
+
+
+
 
   return (
     <section className="hero">
@@ -181,7 +183,8 @@ function MessageBar() {
 }
 
 function CookieBanner() {
-  const [visible, setVisible] = useState(() => typeof window !== 'undefined' && localStorage.getItem('cookie-ok') !== '1');
+  const [visible, setVisible] = useState(false);
+  useEffect(() => { setVisible(localStorage.getItem('cookie-ok') !== '1'); }, []);
   if (!visible) return null;
   return (
     <div className="cookie-container">

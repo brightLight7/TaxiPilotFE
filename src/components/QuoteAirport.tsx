@@ -319,7 +319,6 @@ function JourneyField({
               value={value}
               onChange={onChange ? (event) => onChange(event.currentTarget.value) : undefined}
               onFocus={hasPicker ? (event) => event.currentTarget.showPicker?.() : undefined}
-              onClick={hasPicker ? (event) => event.currentTarget.showPicker?.() : undefined}
             />
           )}
         </span>
