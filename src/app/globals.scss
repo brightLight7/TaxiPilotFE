@@ -1427,3 +1427,27 @@ a {
   color: #ef6600;
   font-weight: 700;
 }
+.auth-subtitle {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.auth-remember {
+  align-items: center;
+  flex-direction: row !important;
+  font-weight: 400 !important;
+  gap: 8px;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-links a {
+  color: #ef6600;
+  font-size: 14px;
+  font-weight: 700;
+}
