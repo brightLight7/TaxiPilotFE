@@ -1,4 +1,5 @@
 import { PageShell } from '@/components/PageShell';
+import Sminout from '@/components/sminout';
 
 export default function Page() {
   return (
