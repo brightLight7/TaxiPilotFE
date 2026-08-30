@@ -1,44 +1,47 @@
-# TaxiPilotNG
+# TaxiPilot
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+A responsive taxi-booking frontend built with Angular and TypeScript. The application includes customer-facing service pages, route and location inputs, account registration, email verification, and administration views backed by REST APIs.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Responsive customer and mobile layouts
+- Pickup and destination inputs with Google Maps integration
+- Airport quote and journey-information flows
+- User registration and email-verification workflow
+- Administration and visitor-management views
+- Backend API integration through Angular services
+- Application state management with NgRx
+- Real-time integration support with SignalR
 
-## Code scaffolding
+## Tech stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Area | Technology |
+|---|---|
+| Framework | Angular 16 |
+| Language | TypeScript |
+| UI | Angular Material, Bootstrap, Sass, Tailwind CSS |
+| State | NgRx, RxJS |
+| Maps | Google Maps |
+| Real time | SignalR |
+| Testing | Jasmine, Karma, Cypress |
 
-## Build
+## Running locally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+npm start
+```
 
-## Running unit tests
+Then open `http://localhost:4200/`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The application expects a compatible backend API. API URLs and third-party credentials must be supplied through secure environment-specific configuration; do not commit live keys, secrets, or recovery codes to the repository.
 
-## Running end-to-end tests
+## Repository status
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This repository is an active project snapshot and still needs a cleanup pass before it is deployment-ready. Planned work includes removing generated build output from version control, documenting the backend contract, adding an example environment configuration, and expanding automated test coverage.
 
-## Further help
+## Security
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+If a credential is accidentally committed, remove it from the current source, rotate or revoke it with the provider, and clean it from the repository's Git history. Treat any committed value as compromised even after the visible file is updated.
 
-## Google Map API Key
 
-AIzaSyAoq4vIbUi8LvqJVLhgnmXU9Orap_PxVWA
-
-## TODO
-digit drop effects
-
-## MailJet 5e3d80f002314d25e7476c637854ed14
-
-## Recaptcha
-
-## Use this site key in the HTML code your site serves to users.
-6Lcui4EqAAAAAMKSdqLyxGdvpa1tC-6ODSD3YYOo
-
-## Use this secret key for communication between your site and reCAPTCHA.
-6Lcui4EqAAAAACz3QjDAJWfG3yU4ymdRK4XL5RFN
