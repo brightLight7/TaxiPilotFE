@@ -1,5 +1,6 @@
 export const environment = {
-  production: true, // Indicates it's a development environment
+  production: true,
   BASE_URL: 'https://arch360api.pisquare360.com/',
-  googleMapsApiKey: 'AIzaSyDYNzPPFlA8FQbXfqERtDiOXaFJUVcW9GU',
+  // Supply this through secure, environment-specific configuration.
+  googleMapsApiKey: '',
 };

@@ -11,6 +11,13 @@
 npm-debug.log
 yarn-error.log
 
+# Android / Gradle generated output
+/android/.gradle/
+/android/**/build/
+/android/local.properties
+*.apk
+*.aab
+
 # IDEs and editors
 .idea/
 .project
@@ -36,6 +43,11 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
 
 # System files
 .DS_Store
